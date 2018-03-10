@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "597150375922",
+    "firebase_url": "https://agrovamp-a2838.firebaseio.com",
+    "project_id": "agrovamp-a2838",
+    "storage_bucket": "agrovamp-a2838.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597150375922:android:6c8d2ef5b55b9a8c",
+        "android_client_info": {
+          "package_name": "com.agrovamp.agrovamp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597150375922-mrulihtb0im46cg9ce55oc1rgfj4ij9u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.agrovamp.agrovamp",
+            "certificate_hash": "99c35536c72dac389bf27030a147025797f6d8d5"
+          }
+        },
+        {
+          "client_id": "597150375922-9kfr3ccu3atjm1r5t6j5gfa64rbika72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQt10zh0LWuvhs7axynsaW9-oo7J8UGH4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597150375922-9kfr3ccu3atjm1r5t6j5gfa64rbika72.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

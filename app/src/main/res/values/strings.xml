@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Agrovamp</string>
+    <string name="welcome">Welcome</string>
+    <string name="please_select_your_language">Please select your language</string>
+    <string name="next">Next</string>
+    <string name="select_a_language">Select a language</string>
+    <string name="user_selected">User selected:</string>
+    <string name="mobile_number">Enter your mobile number</string>
+    <string name="enter_a_valid_mobile_number">Enter a valid mobile number</string>
+    <string name="title_activity_user_main">UserMainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="verification_success">Verification success</string>
+    <string name="verification_failed">Verification failed. Try again</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="your_farm">Your Farm</string>
+    <string name="faq">FAQ</string>
+    <string name="help">Help</string>
+    <string name="market_place">Marketplace</string>
+    <string name="summary">Summary</string>
+    <string name="controls">Controls</string>
+    <string name="drone">Drone</string>
+    <string name="camera_view">Camera View</string>
+    <string name="plant_seeds">Plant seeds</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="enter_your_name">Please enter your name to proceed</string>
+    <string name="temperature">Temperature</string>
+    <string name="moisture">Moisture</string>
+    <string name="pressure">Pressure</string>
+    <string name="logout">Logout</string>
+    <string name="control_the_motor_and_pump_of_your_farm_here">Control the motor and pump of your farm here.</string>
+</resources>
