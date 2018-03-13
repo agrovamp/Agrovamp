@@ -2,6 +2,7 @@ package com.agrovamp.agrovamp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,7 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -25,14 +29,19 @@ import java.util.concurrent.TimeUnit;
 
 public class MobileNumberActivity extends AppCompatActivity {
 
+    public static final String KEY_MOBILE = "KEY_MOBILE";
+    public static final String KEY_QR = "KEY_QR";
+
     private EditText phoneEditText;
     private Button nextButton;
-    private ProgressDialog dialog;
 
     private FirebaseUser firebaseUser;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase database;
     private DatabaseReference reference;
+
+    public String qrId;
+    public String phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,44 +53,27 @@ public class MobileNumberActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
 
-        dialog = new ProgressDialog(getApplicationContext());
-
         if (firebaseUser != null) {
             // Go to main activity
-            startActivity(new Intent(MobileNumberActivity.this, UserMainActivity.class));
+            startActivity(new Intent(MobileNumberActivity.this, UserMainActivity.class)
+            .putExtra(QRCodeActivity.KEY_QR, qrId));
             finish();
         }
 
-        Intent intent = getIntent();
-        String qrId = intent.getStringExtra("qr_id");
+        final Intent intent = getIntent();
+        qrId = intent.getStringExtra(QRCodeActivity.KEY_QR);
 
         phoneEditText = (EditText) findViewById(R.id.phone_edit_text);
         nextButton = (Button) findViewById(R.id.next_button);
 
-//       / reference.child(qrId).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.child("user").child("mobilenumber").exists()) {
-//                    // It means the user has logged in before.
-//                } else {
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String phone = phoneEditText.getText().toString();
+                phone = phoneEditText.getText().toString();
                 if (TextUtils.isEmpty(phone)){
                     Toast.makeText(getApplicationContext(), getString(R.string.enter_a_valid_mobile_number), Toast.LENGTH_SHORT).show();
                 } else {
-                    PhoneAuthProvider.getInstance(firebaseAuth).verifyPhoneNumber(
+                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
                             phone,
                             60,
                             TimeUnit.SECONDS,
@@ -90,14 +82,18 @@ public class MobileNumberActivity extends AppCompatActivity {
                                 @Override
                                 public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
                                     Toast.makeText(getApplicationContext(), getString(R.string.verification_success), Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(MobileNumberActivity.this,  UserMainActivity.class)
-                                            .putExtra("mobile_number", phone));
-                                    finish();
+                                    signInWithPhoneCredentials(phoneAuthCredential);
                                 }
 
                                 @Override
                                 public void onVerificationFailed(FirebaseException e) {
                                     Toast.makeText(getApplicationContext(), getString(R.string.verification_failed), Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                    super.onCodeSent(s, forceResendingToken);
+                                    Toast.makeText(getApplicationContext(), R.string.verification, Toast.LENGTH_SHORT).show();
                                 }
                             }
                     );
@@ -105,5 +101,23 @@ public class MobileNumberActivity extends AppCompatActivity {
             }
         };
         nextButton.setOnClickListener(clickListener);
+    }
+
+    private void signInWithPhoneCredentials(PhoneAuthCredential phoneAuthCredential) {
+        firebaseAuth.signInWithCredential(phoneAuthCredential)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            reference.child(qrId).child("user").child("phone").setValue(phone);
+                            Intent i = new Intent(MobileNumberActivity.this, NameActivity.class);
+                            i.putExtra(KEY_QR, qrId);
+                            startActivity(i);
+                            finish();
+                        } else {
+                            Toast.makeText(getApplicationContext(), getString(R.string.verification_failed), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }

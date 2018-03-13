@@ -45,15 +45,15 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "isStored() called");
             String languageCode = preferenceManager.getLanguageCode();
             setupLocale(languageCode);
-            startActivity(new Intent(this, MobileNumberActivity.class));
+            startActivity(new Intent(this, QRCodeActivity.class));
             finish();
         }
 
-        if (firebaseUser != null) {
-            Log.d(TAG, "inside null check");
-            startActivity(new Intent(this, UserMainActivity.class));
-            finish();
-        }
+//        if (firebaseUser != null) {
+//            Log.d(TAG, "inside null check");
+//            startActivity(new Intent(this, UserMainActivity.class));
+//            finish();
+//        }
 
         languageSpinner = (Spinner) findViewById(R.id.language_spinner);
         nextButton = (Button) findViewById(R.id.next_button);
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         preferenceManager.storeLanguageCode(languageCode);
                     }
                     setupLocale(languageCode);
-                    startActivity(new Intent(getApplicationContext(), MobileNumberActivity.class));
+                    startActivity(new Intent(getApplicationContext(), QRCodeActivity.class));
                     finish();
                 }
             }

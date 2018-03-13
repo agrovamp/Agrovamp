@@ -15,7 +15,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class NameActivity extends AppCompatActivity {
@@ -37,15 +36,31 @@ public class NameActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("users");
+        reference = database.getReference();
+
+        firstNameEditText = (EditText) findViewById(R.id.first_name_edit_text);
+        lastNameEditText = (EditText) findViewById(R.id.last_name_edit_text);
+        nextButton = (Button) findViewById(R.id.next_button);
 
         Intent intent = getIntent();
-        String mobileNumber = intent.getStringExtra("mobile_number");
+        String mobileNumber = intent.getStringExtra(MobileNumberActivity.KEY_MOBILE);
+        final String qrId = intent.getStringExtra(QRCodeActivity.KEY_QR);
 
-        if (firebaseUser != null) {
-            startActivity(new Intent(NameActivity.this, UserMainActivity.class));
-            finish();
-        }
+        reference.child(qrId).child("user").child("name").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    startActivity(new Intent(NameActivity.this, UserMainActivity.class)
+                            .putExtra(QRCodeActivity.KEY_QR, qrId));
+                    finish();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         firstNameEditText = (EditText) findViewById(R.id.first_name_edit_text);
         lastNameEditText = (EditText) findViewById(R.id.last_name_edit_text);
@@ -57,9 +72,14 @@ public class NameActivity extends AppCompatActivity {
                 String firstName = firstNameEditText.getText().toString();
                 String lastName = lastNameEditText.getText().toString();
 
-                if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName)) {
+                if (TextUtils.isEmpty(firstName)) {
                     Toast.makeText(getApplicationContext(), getString(R.string.enter_your_name), Toast.LENGTH_SHORT).show();
                 } else {
+                    String name = firstName + " " + lastName;
+                    reference.child(qrId).child("user").child("name").setValue(name);
+                    startActivity(new Intent(NameActivity.this, UserMainActivity.class)
+                            .putExtra(QRCodeActivity.KEY_QR, qrId)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 }
             }
         });

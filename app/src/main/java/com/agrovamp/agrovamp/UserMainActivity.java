@@ -10,8 +10,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,8 +25,12 @@ public class UserMainActivity extends AppCompatActivity
         HelpFragment.OnFragmentInteractionListener,
         MarketplaceFragment.OnFragmentInteractionListener{
 
+    public static final String TAG = UserMainActivity.class.getSimpleName();
+
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
+
+    private String qrId = "12345";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,11 @@ public class UserMainActivity extends AppCompatActivity
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
+
+        Intent intent = getIntent();
+        qrId = intent.getStringExtra(QRCodeActivity.KEY_QR);
+
+        Log.d(TAG, "QR: " + qrId);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -87,6 +98,10 @@ public class UserMainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    public String getQrId() {
+        return qrId;
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -121,4 +136,5 @@ public class UserMainActivity extends AppCompatActivity
     public void onFragmentInteraction(String title) {
         getSupportActionBar().setTitle(title);
     }
+
 }

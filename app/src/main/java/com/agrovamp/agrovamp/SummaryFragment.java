@@ -46,7 +46,8 @@ public class SummaryFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference().child("12345");
+        String qrId = new UserMainActivity().getQrId();
+        reference = database.getReference().child(qrId);
     }
 
     @Override
@@ -87,4 +88,5 @@ public class SummaryFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
 }

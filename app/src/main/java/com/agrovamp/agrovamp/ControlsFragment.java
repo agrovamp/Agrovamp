@@ -65,7 +65,8 @@ public class ControlsFragment extends Fragment {
         }
 
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference().child("12345");
+        String qrId = new UserMainActivity().getQrId();
+        reference = database.getReference().child(qrId);
     }
 
     @Override

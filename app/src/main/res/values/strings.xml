@@ -35,4 +35,5 @@
     <string name="pressure">Pressure</string>
     <string name="logout">Logout</string>
     <string name="control_the_motor_and_pump_of_your_farm_here">Control the motor and pump of your farm here.</string>
+    <string name="verification">Verification code sent!</string>
 </resources>

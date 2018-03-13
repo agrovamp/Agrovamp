@@ -34,4 +34,5 @@
     <string name="pressure">दबाव</string>
     <string name="logout">लोग आउट</string>
     <string name="control_the_motor_and_pump_of_your_farm_here">यहां अपने खेत के मोटर और पंप को नियंत्रित करें।</string>
+    <string name="verification">Verification code sent!</string>
 </resources>
