@@ -6,7 +6,9 @@ import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -19,7 +21,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String LANG_KEY = "LANG_KEY";
+    public static final String TAG = MainActivity.class.getSimpleName();
 
     private Spinner languageSpinner;
     private Button nextButton;
@@ -27,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
 
-    private SharedPreferences preferences;
-    private SharedPreferences.Editor editor;
+    private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +39,21 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
-        if (firebaseUser != null) {
-            startActivity(new Intent(this, UserMainActivity.class));
+        preferenceManager = new PreferenceManager(getApplicationContext());
+
+        if (preferenceManager.isStored()) {
+            Log.d(TAG, "isStored() called");
+            String languageCode = preferenceManager.getLanguageCode();
+            setupLocale(languageCode);
+            startActivity(new Intent(this, MobileNumberActivity.class));
             finish();
         }
 
-        preferences = getPreferences(MODE_PRIVATE);
-        editor = preferences.edit();
+        if (firebaseUser != null) {
+            Log.d(TAG, "inside null check");
+            startActivity(new Intent(this, UserMainActivity.class));
+            finish();
+        }
 
         languageSpinner = (Spinner) findViewById(R.id.language_spinner);
         nextButton = (Button) findViewById(R.id.next_button);
@@ -53,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         languageSpinner.setAdapter(adapter);
 
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,27 +70,31 @@ public class MainActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(language)) {
                     Toast.makeText(MainActivity.this, R.string.select_a_language, Toast.LENGTH_SHORT).show();
                 } else {
-                    String language_code = "en";
-                    switch (language) {
-                        case "English": language_code = "en";
-                            break;
-                        case "Hindi": language_code = "hi";
-                            break;
-                        case "Marathi": language_code = "mr";
-                            break;
+                    String languageCode = "en";
+                    if (preferenceManager.isStored()) {
+                        languageCode = preferenceManager.getLanguageCode();
+                    } else {
+                        switch (language) {
+                            case "English": languageCode = "en";
+                                break;
+                            case "Hindi": languageCode = "hi";
+                                break;
+                            case "Marathi": languageCode = "mr";
+                                break;
+                        }
+                        preferenceManager.storeLanguageCode(languageCode);
                     }
-                    editor.putString(LANG_KEY, language_code);
-                    editor.commit();
-                    Toast.makeText(MainActivity.this, getString(R.string.user_selected) + language, Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, UserMainActivity.class).putExtra(LANG_KEY, language_code));
-
-                    Configuration configuration = getResources().getConfiguration();
-                    configuration.setLocale(new Locale(language_code));
-                    getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
-                    recreate();
+                    setupLocale(languageCode);
+                    startActivity(new Intent(getApplicationContext(), MobileNumberActivity.class));
                     finish();
                 }
             }
         });
+    }
+
+    public void setupLocale(String languageCode) {
+        Configuration configuration = getResources().getConfiguration();
+        configuration.setLocale(new Locale(languageCode));
+        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
     }
 }
