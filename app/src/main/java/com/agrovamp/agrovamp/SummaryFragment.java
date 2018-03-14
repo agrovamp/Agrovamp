@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class SummaryFragment extends Fragment {
 
+    public static final String TAG = "SummaryFragment";
     private TextView temperatureTextView;
     private TextView moistureTextView;
     private TextView humidityTextView;
@@ -32,6 +34,8 @@ public class SummaryFragment extends Fragment {
     private User user;
     private DatabaseReference reference;
     private FirebaseDatabase database;
+
+    public String qrId;
 
     public SummaryFragment() {
         // Required empty public constructor
@@ -45,9 +49,13 @@ public class SummaryFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FarmFragment farmFragment = (FarmFragment) getParentFragment();
+        qrId = farmFragment.getQrId();
+
         database = FirebaseDatabase.getInstance();
-        String qrId = new UserMainActivity().getQrId();
-        reference = database.getReference().child(qrId);
+        Log.d(TAG, "QR: " + qrId);
+        reference = database.getReference().child(qrId).child("sensors");
     }
 
     @Override
@@ -62,10 +70,12 @@ public class SummaryFragment extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Sensor sensor = dataSnapshot.child("sensors").getValue(Sensor.class);
-                temperatureTextView.setText(Math.round(sensor.getTemperature()) + "\'C");
-                humidityTextView.setText(Math.round(sensor.getHumidity()) + "");
-                moistureTextView.setText(Math.round(sensor.getMoisture()) + "");
+                if (dataSnapshot.exists()) {
+                    Sensor sensor = dataSnapshot.getValue(Sensor.class);
+                    temperatureTextView.setText(Math.round(sensor.getTemperature()) + "\'C");
+                    humidityTextView.setText(Math.round(sensor.getHumidity()) + "");
+                    moistureTextView.setText(Math.round(sensor.getMoisture()) + "");
+                }
             }
 
             @Override

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.concurrent.TimeUnit;
 
 public class MobileNumberActivity extends AppCompatActivity {
+
+    public static final String TAG = MobileNumberActivity.class.getSimpleName();
 
     public static final String KEY_MOBILE = "KEY_MOBILE";
     public static final String KEY_QR = "KEY_QR";
@@ -62,6 +65,8 @@ public class MobileNumberActivity extends AppCompatActivity {
 
         final Intent intent = getIntent();
         qrId = intent.getStringExtra(QRCodeActivity.KEY_QR);
+
+        Log.d(TAG, "QR: " + qrId);
 
         phoneEditText = (EditText) findViewById(R.id.phone_edit_text);
         nextButton = (Button) findViewById(R.id.next_button);
@@ -109,9 +114,10 @@ public class MobileNumberActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            Log.d(TAG, "QR: " + qrId);
                             reference.child(qrId).child("user").child("phone").setValue(phone);
                             Intent i = new Intent(MobileNumberActivity.this, NameActivity.class);
-                            i.putExtra(KEY_QR, qrId);
+                            i.putExtra(QRCodeActivity.KEY_QR, qrId);
                             startActivity(i);
                             finish();
                         } else {

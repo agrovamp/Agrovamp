@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,12 @@ import android.view.ViewParent;
  */
 public class FarmFragment extends Fragment {
 
+    public static final String TAG = "FarmFragment";
+
     private OnFragmentInteractionListener mListener;
+
+    public String qrId;
+    private Bundle bundle;
 
     public FarmFragment() {
         // Required empty public constructor
@@ -42,6 +48,11 @@ public class FarmFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        bundle = new Bundle();
+        UserMainActivity activity = (UserMainActivity) getActivity();
+        qrId = activity.getQrId();
+        bundle.putString(QRCodeActivity.KEY_QR, qrId);
+        Log.d(TAG, "QR: " + activity.getQrId());
     }
 
     @Override
@@ -60,9 +71,17 @@ public class FarmFragment extends Fragment {
         return view;
     }
 
+    public String getQrId() {
+        return qrId;
+    }
+
     public void setUpViewPager(ViewPager viewPager) {
         FarmTabAdapter adapter = new FarmTabAdapter(getChildFragmentManager());
-        adapter.addFragment(SummaryFragment.newInstance(), getString(R.string.summary));
+        SummaryFragment summaryFragment = SummaryFragment.newInstance();
+        Bundle bundle = new Bundle();
+        bundle.putString(QRCodeActivity.KEY_QR, qrId);
+        summaryFragment.setArguments(bundle);
+        adapter.addFragment(summaryFragment, getString(R.string.summary));
         adapter.addFragment(ControlsFragment.newInstance(), getString(R.string.controls));
         adapter.addFragment(DroneFragment.newInstance(), getString(R.string.drone));
         viewPager.setAdapter(adapter);

@@ -2,6 +2,7 @@ package com.agrovamp.agrovamp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -10,13 +11,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SubscriptionManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
+
+import java.util.ResourceBundle;
 
 public class UserMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -30,7 +43,13 @@ public class UserMainActivity extends AppCompatActivity
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
 
-    private String qrId = "12345";
+    private FirebaseDatabase database;
+    private DatabaseReference reference;
+
+    private Fragment fragment;
+    private Bundle bundle;
+
+    private String qrId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +58,23 @@ public class UserMainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
-
         Intent intent = getIntent();
         qrId = intent.getStringExtra(QRCodeActivity.KEY_QR);
 
         Log.d(TAG, "QR: " + qrId);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference();
+
+        Log.d(TAG, "QR: " + qrId);
+
+        bundle = new Bundle();
+        bundle.putString(QRCodeActivity.KEY_QR, qrId);
+
+        FarmFragment farmFragment = new FarmFragment();
+        farmFragment.setArguments(bundle);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -55,6 +84,21 @@ public class UserMainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+        final TextView userNameTextView = (TextView) headerView.findViewById(R.id.name_text_view);
+        final TextView mobileNumberTextView = (TextView) headerView.findViewById(R.id.phone_text_view);
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_frame_layout, new FarmFragment());
@@ -108,11 +152,13 @@ public class UserMainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Fragment fragment = null;
+        fragment = new FarmFragment();
+        fragment.setArguments(bundle);
 
         if (id == R.id.nav_your_farm) {
             // Handle the camera action
             fragment = new FarmFragment();
+            fragment.setArguments(bundle);
         } else if (id == R.id.nav_faq) {
             fragment = new FAQFragment();
         } else if (id == R.id.nav_marketplace) {

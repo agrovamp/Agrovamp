@@ -7,19 +7,19 @@
         <item
             android:id="@+id/nav_your_farm"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Your Farm" />
+            android:title="@string/your_farm" />
         <item
             android:id="@+id/nav_faq"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="FAQ" />
+            android:title="@string/faq" />
         <item
             android:id="@+id/nav_marketplace"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Marketplace" />
+            android:title="@string/market_place" />
         <item
             android:id="@+id/nav_help"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Help" />
+            android:title="@string/help" />
     </group>
 
 </menu>

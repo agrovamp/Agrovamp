@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class NameActivity extends AppCompatActivity {
+
+    public static final String TAG = NameActivity.class.getSimpleName();
 
     private EditText firstNameEditText;
     private EditText lastNameEditText;
@@ -46,12 +49,15 @@ public class NameActivity extends AppCompatActivity {
         String mobileNumber = intent.getStringExtra(MobileNumberActivity.KEY_MOBILE);
         final String qrId = intent.getStringExtra(QRCodeActivity.KEY_QR);
 
+        Log.d(TAG, "QR: " + qrId);
+
         reference.child(qrId).child("user").child("name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     startActivity(new Intent(NameActivity.this, UserMainActivity.class)
                             .putExtra(QRCodeActivity.KEY_QR, qrId));
+                    Log.d(TAG, "QR: " + qrId);
                     finish();
                 }
             }

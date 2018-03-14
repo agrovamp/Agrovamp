@@ -34,6 +34,7 @@ public class ControlsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private String qrId;
     private FirebaseDatabase database;
     private DatabaseReference reference;
 
@@ -59,13 +60,9 @@ public class ControlsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
+        FarmFragment farmFragment = (FarmFragment) getParentFragment();
+        qrId = farmFragment.getQrId();
         database = FirebaseDatabase.getInstance();
-        String qrId = new UserMainActivity().getQrId();
         reference = database.getReference().child(qrId);
     }
 
@@ -80,8 +77,10 @@ public class ControlsFragment extends Fragment {
         reference.child("controls").child("motor").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                boolean checked = (boolean) dataSnapshot.getValue();
-                motorSwitch.setChecked(checked);
+                if (dataSnapshot.exists()) {
+                    boolean checked = (boolean) dataSnapshot.getValue();
+                    motorSwitch.setChecked(checked);
+                }
             }
 
             @Override
@@ -93,8 +92,10 @@ public class ControlsFragment extends Fragment {
         reference.child("controls").child("pump").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                boolean checked = (boolean) dataSnapshot.getValue();
-                pumpSwitch.setChecked(checked);
+                if (dataSnapshot.exists()) {
+                    boolean checked = (boolean) dataSnapshot.getValue();
+                    pumpSwitch.setChecked(checked);
+                }
             }
 
             @Override
