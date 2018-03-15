@@ -21,6 +21,8 @@ public class PreferenceManager {
     public static final String PREF_NAME = "pref_name";
     public static final String KEY_LANG = "lang_key";
     public static final String IS_STORED = "is_stored";
+    public static final String IS_QR_STORED = "is_qr_stored";
+    public static final String KEY_QR = "KEY_QR";
     public static final String IS_FIRST_TIME = "is_first_time";
 
     public PreferenceManager(Context context) {
@@ -42,10 +44,21 @@ public class PreferenceManager {
         }
     }
 
+    public void storeQRCode(String qrCode) {
+        editor.putBoolean(IS_QR_STORED, true);
+        editor.putString(KEY_QR, qrCode);
+        editor.commit();
+    }
+
     public void storeLanguageCode(String langCode) {
         editor.putBoolean(IS_STORED, true);
         editor.putString(KEY_LANG, langCode);
         editor.commit();
+    }
+
+    public String getQRCode() {
+        String qrCode = preferences.getString(KEY_QR, "12345");
+        return qrCode;
     }
 
     public String getLanguageCode() {
@@ -53,6 +66,10 @@ public class PreferenceManager {
         String languageCode = preferences.getString(KEY_LANG, "en");
         Log.d(MainActivity.TAG, "Language code; " + languageCode);
         return languageCode;
+    }
+
+    public boolean isQRStored() {
+        return preferences.getBoolean(IS_QR_STORED, false);
     }
 
     public boolean isStored() {

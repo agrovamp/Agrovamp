@@ -1,5 +1,6 @@
 package com.agrovamp.agrovamp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.jar.Attributes;
+
 public class NameActivity extends AppCompatActivity {
 
     public static final String TAG = NameActivity.class.getSimpleName();
@@ -31,6 +34,8 @@ public class NameActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference reference;
 
+    private ProgressDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +46,13 @@ public class NameActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
 
+        dialog = new ProgressDialog(NameActivity.this);
+
         firstNameEditText = (EditText) findViewById(R.id.first_name_edit_text);
         lastNameEditText = (EditText) findViewById(R.id.last_name_edit_text);
         nextButton = (Button) findViewById(R.id.next_button);
+
+        dialog.show();
 
         Intent intent = getIntent();
         String mobileNumber = intent.getStringExtra(MobileNumberActivity.KEY_MOBILE);
@@ -55,16 +64,20 @@ public class NameActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
+                    dialog.dismiss();
                     startActivity(new Intent(NameActivity.this, UserMainActivity.class)
                             .putExtra(QRCodeActivity.KEY_QR, qrId));
                     Log.d(TAG, "QR: " + qrId);
                     finish();
+                } else {
+                    dialog.dismiss();
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                dialog.dismiss();
+                Toast.makeText(getApplicationContext(), getString(R.string.check_internet), Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -36,4 +36,13 @@
     <string name="logout">Logout</string>
     <string name="control_the_motor_and_pump_of_your_farm_here">Control the motor and pump of your farm here.</string>
     <string name="verification">Verification code sent!</string>
+    <string name="no_result_found">No result found. Contact team Agrovamp</string>
+    <string name="check_internet">Check your internet connection</string>
+    <string name="scan_qr_code">Scan QR code</string>
+    <string name="or_nenter_code_manually">Or\n\n enter code manually</string>
+    <string name="yes">Yes</string>
+    <string name="negative">No</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="motor">Motor</string>
+    <string name="pump">Pump</string>
 </resources>

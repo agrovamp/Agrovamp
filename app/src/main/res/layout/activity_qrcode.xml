@@ -5,21 +5,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="70dp"
     tools:context="com.agrovamp.agrovamp.QRCodeActivity">
 
+    <Button
+        android:id="@+id/scan_qr_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/scan_qr_code"
+        android:background="#0BD175"
+        android:layout_marginTop="50dp"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/manually"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scan_qr_button"
+        android:layout_marginTop="50dp"
+        android:textAllCaps="true"
+        android:text="@string/or_nenter_code_manually"
+        android:gravity="center"
+        android:textSize="17sp"/>
 
     <EditText
+        android:id="@+id/qr_id_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="12345"
-        android:id="@+id/qr_id_edit_text"
-        />
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/manually"/>
 
     <Button
+        android:id="@+id/next_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/next_button"
-        />
+        android:text="@string/next"
+        android:background="#0BD175"
+        android:textColor="#ffffff"
+        android:layout_below="@id/qr_id_edit_text"/>
+
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,6 +44,8 @@ public class MobileNumberActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference reference;
 
+    private ProgressDialog dialog;
+
     public String qrId;
     public String phone;
 
@@ -55,6 +58,11 @@ public class MobileNumberActivity extends AppCompatActivity {
         firebaseUser = firebaseAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
+
+        dialog = new ProgressDialog(MobileNumberActivity.this);
+        dialog.setMessage(getString(R.string.please_wait));
+        dialog.setIndeterminate(true);
+
 
         if (firebaseUser != null) {
             // Go to main activity
@@ -74,8 +82,10 @@ public class MobileNumberActivity extends AppCompatActivity {
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dialog.show();
                 phone = phoneEditText.getText().toString();
                 if (TextUtils.isEmpty(phone)){
+                    dialog.dismiss();
                     Toast.makeText(getApplicationContext(), getString(R.string.enter_a_valid_mobile_number), Toast.LENGTH_SHORT).show();
                 } else {
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -114,6 +124,7 @@ public class MobileNumberActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            dialog.dismiss();
                             Log.d(TAG, "QR: " + qrId);
                             reference.child(qrId).child("user").child("phone").setValue(phone);
                             Intent i = new Intent(MobileNumberActivity.this, NameActivity.class);

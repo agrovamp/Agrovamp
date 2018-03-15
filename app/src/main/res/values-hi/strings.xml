@@ -35,4 +35,9 @@
     <string name="logout">लोग आउट</string>
     <string name="control_the_motor_and_pump_of_your_farm_here">यहां अपने खेत के मोटर और पंप को नियंत्रित करें।</string>
     <string name="verification">Verification code sent!</string>
+    <string name="no_result_found">No result found. Contact team Agrovamp</string>
+    <string name="check_internet">Check your internet connection</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="motor">Motor</string>
+    <string name="pump">Pump</string>
 </resources>

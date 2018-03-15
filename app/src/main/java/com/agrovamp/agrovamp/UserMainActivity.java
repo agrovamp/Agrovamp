@@ -1,5 +1,6 @@
 package com.agrovamp.agrovamp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -9,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SubscriptionManager;
@@ -49,6 +51,8 @@ public class UserMainActivity extends AppCompatActivity
     private Fragment fragment;
     private Bundle bundle;
 
+    private PreferenceManager preferenceManager;
+
     private String qrId;
 
     @Override
@@ -60,6 +64,12 @@ public class UserMainActivity extends AppCompatActivity
 
         Intent intent = getIntent();
         qrId = intent.getStringExtra(QRCodeActivity.KEY_QR);
+
+        preferenceManager = new PreferenceManager(getApplicationContext());
+
+        if (preferenceManager.isStored()) {
+            Log.d(TAG, "Lang code: " + preferenceManager.getLanguageCode());
+        }
 
         Log.d(TAG, "QR: " + qrId);
 
@@ -89,14 +99,19 @@ public class UserMainActivity extends AppCompatActivity
         final TextView userNameTextView = (TextView) headerView.findViewById(R.id.name_text_view);
         final TextView mobileNumberTextView = (TextView) headerView.findViewById(R.id.phone_text_view);
 
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.child(qrId).child("user").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String name = dataSnapshot.child("name").getValue().toString();
+                    String phone = dataSnapshot.child("phone").getValue().toString();
+                    userNameTextView.setText(name);
+                    mobileNumberTextView.setText(phone);
+                }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Toast.makeText(getApplicationContext(), getString(R.string.check_internet), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -130,11 +145,11 @@ public class UserMainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_logout) {
+        if (id == R.id.action_logout) {
             firebaseAuth.signOut();
-            startActivity(new Intent(UserMainActivity.this, MobileNumberActivity.class));
+            startActivity(new Intent(UserMainActivity.this, QRCodeActivity.class)
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+            ));
             finish();
             return true;
         }

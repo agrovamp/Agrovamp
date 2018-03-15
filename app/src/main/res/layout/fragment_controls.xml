@@ -18,11 +18,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="Motor"
+        android:text="@string/motor"
         android:checked="true"
         android:layout_marginTop="50dp"
-        android:textOff="Off"
-        android:textOn="On"
         android:layout_gravity="center"
         />
 
@@ -31,11 +29,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="Pump"
+        android:text="@string/pump"
         android:checked="true"
         android:layout_marginTop="50dp"
-        android:textOff="Off"
-        android:textOn="On"
         android:layout_gravity="center"
         />
 </LinearLayout>
