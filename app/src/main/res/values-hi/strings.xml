@@ -40,4 +40,8 @@
     <string name="please_wait">Please wait...</string>
     <string name="motor">Motor</string>
     <string name="pump">Pump</string>
+    <string name="set_timer">Set timer</string>
+    <string name="select_video">Select video</string>
+    <string name="select_a_video">Please select a video first</string>
+    <string name="file_selected">File selected</string>
 </resources>

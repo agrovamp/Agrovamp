@@ -2,6 +2,7 @@ package com.agrovamp.agrovamp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.NavigationView;
@@ -38,7 +39,8 @@ public class UserMainActivity extends AppCompatActivity
         FarmFragment.OnFragmentInteractionListener,
         FAQFragment.OnFragmentInteractionListener,
         HelpFragment.OnFragmentInteractionListener,
-        MarketplaceFragment.OnFragmentInteractionListener{
+        MarketplaceFragment.OnFragmentInteractionListener,
+        AgrobookFragment.OnFragmentInteractionListener{
 
     public static final String TAG = UserMainActivity.class.getSimpleName();
 
@@ -63,12 +65,17 @@ public class UserMainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
-        qrId = intent.getStringExtra(QRCodeActivity.KEY_QR);
 
         preferenceManager = new PreferenceManager(getApplicationContext());
 
         if (preferenceManager.isStored()) {
             Log.d(TAG, "Lang code: " + preferenceManager.getLanguageCode());
+        }
+
+        if (preferenceManager.isQRStored()) {
+            qrId = preferenceManager.getQRCode();
+        } else {
+            qrId = intent.getStringExtra(QRCodeActivity.KEY_QR);
         }
 
         Log.d(TAG, "QR: " + qrId);
@@ -180,6 +187,8 @@ public class UserMainActivity extends AppCompatActivity
             fragment = new MarketplaceFragment();
         } else if (id == R.id.nav_help) {
             fragment = new HelpFragment();
+        } else if (id == R.id.nav_agrobook) {
+            fragment = new AgrobookFragment();
         }
 
         if (fragment != null) {
@@ -197,5 +206,4 @@ public class UserMainActivity extends AppCompatActivity
     public void onFragmentInteraction(String title) {
         getSupportActionBar().setTitle(title);
     }
-
 }

@@ -20,6 +20,11 @@
             android:id="@+id/nav_help"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/help" />
+        <item
+            android:id="@+id/nav_agrobook"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/agrobook" />
+
     </group>
 
 </menu>

@@ -45,4 +45,16 @@
     <string name="please_wait">Please wait...</string>
     <string name="motor">Motor</string>
     <string name="pump">Pump</string>
+    <string name="set_timer">Set timer</string>
+    <string name="agrobook">Agrobook</string>
+    <string name="choose">Choose</string>
+    <string name="enter_name_for_video">Enter name for video</string>
+    <string name="upload">Upload</string>
+    <string name="select_video">Select video</string>
+    <string name="select_a_video">Please select a video first</string>
+    <string name="file_selected">File selected</string>
+    <string name="pump_on">Pump turned ON</string>
+    <string name="pump_off">Pump turned OFF</string>
+    <string name="motor_on">Motor turned ON</string>
+    <string name="motor_off">Motor turned OFF</string>
 </resources>

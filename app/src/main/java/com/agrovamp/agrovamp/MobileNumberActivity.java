@@ -61,6 +61,7 @@ public class MobileNumberActivity extends AppCompatActivity {
 
         dialog = new ProgressDialog(MobileNumberActivity.this);
         dialog.setMessage(getString(R.string.please_wait));
+        dialog.setCancelable(false);
         dialog.setIndeterminate(true);
 
 
@@ -102,11 +103,13 @@ public class MobileNumberActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onVerificationFailed(FirebaseException e) {
+                                    dialog.dismiss();
                                     Toast.makeText(getApplicationContext(), getString(R.string.verification_failed), Toast.LENGTH_SHORT).show();
                                 }
 
                                 @Override
                                 public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                    dialog.dismiss();
                                     super.onCodeSent(s, forceResendingToken);
                                     Toast.makeText(getApplicationContext(), R.string.verification, Toast.LENGTH_SHORT).show();
                                 }
