@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -20,6 +21,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.xml.sax.ext.Attributes2Impl;
 
 import java.util.Calendar;
 
@@ -47,9 +50,9 @@ public class ControlsFragment extends Fragment {
     private FirebaseDatabase database;
     private DatabaseReference reference;
 
-    private Switch motorSwitch;
+    private Switch irSwitch;
     private Switch pumpSwitch;
-    private Button setTimerButton;
+    private TextView intruderTextView;
 
     private PreferenceManager preferenceManager;
     public ControlsFragment() {
@@ -93,39 +96,24 @@ public class ControlsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_controls, container, false);
-        motorSwitch = view.findViewById(R.id.motor_switch);
         pumpSwitch = view.findViewById(R.id.pump_switch);
-        setTimerButton = view.findViewById(R.id.set_timer_button);
+        irSwitch = view.findViewById(R.id.ir_switch);
+        intruderTextView = view.findViewById(R.id.intruder_textview);
 
-        setTimerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                final int hour = calendar.get(Calendar.HOUR);
-                final int minute = calendar.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity().getApplicationContext(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        Toast.makeText(getActivity().getApplicationContext(), "Hour: " + hour + " Minute: " + minute, Toast.LENGTH_SHORT).show();
-                    }
-                }, hour, minute, false);
-            }
-        });
-
-        reference.child("controls").child("motor").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    boolean checked = (boolean) dataSnapshot.getValue();
-                    motorSwitch.setChecked(checked);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+//        reference.child("controls").child("motor").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()) {
+//                    boolean checked = (boolean) dataSnapshot.getValue();
+//                    motorSwitch.setChecked(checked);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
 
         reference.child("controls").child("pump").addValueEventListener(new ValueEventListener() {
             @Override
@@ -142,25 +130,39 @@ public class ControlsFragment extends Fragment {
             }
         });
 
-        motorSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        reference.child("security").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                  reference.child("controls").child("motor").setValue(isChecked);
-                if(isChecked)
-                    Toast.makeText(getParentFragment().getActivity().getApplicationContext(), R.string.motor_on, Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getParentFragment().getActivity().getApplicationContext(), R.string.motor_off, Toast.LENGTH_SHORT).show();
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    long irValue = (long) dataSnapshot.child("ir").getValue();
+                    if (irValue == 0) {
+                        intruderTextView.setTextColor(getParentFragment().getActivity().getResources().getColor(R.color.green));
+                        intruderTextView.setText(R.string.outside_boundary);
+                    } else if (irValue == 1) {
+                        intruderTextView.setTextColor(getParentFragment().getActivity().getResources().getColor(R.color.yellow));
+                        intruderTextView.setText(R.string.at_boundary);
+                    } else if (irValue == 2) {
+                        intruderTextView.setTextColor(getParentFragment().getActivity().getResources().getColor(R.color.red));
+                        intruderTextView.setText(R.string.inside_boundary);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
+
 
         pumpSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 reference.child("controls").child("pump").setValue(isChecked);
                 if(isChecked)
-                    Toast.makeText(getParentFragment().getActivity().getApplicationContext(), R.string.pump_on, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getParentFragment().getActivity().getApplicationContext(), getParentFragment().getActivity().getString(R.string.pump_on), Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(getParentFragment().getActivity().getApplicationContext(), R.string.pump_off, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getParentFragment().getActivity().getApplicationContext(), getParentFragment().getActivity().getString(R.string.pump_off), Toast.LENGTH_SHORT).show();
             }
         });
 

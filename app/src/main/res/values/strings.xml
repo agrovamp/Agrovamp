@@ -35,7 +35,7 @@
     <string name="pressure">Pressure</string>
     <string name="logout">Logout</string>
     <string name="control_the_motor_and_pump_of_your_farm_here">Control the motor and pump of your farm here.</string>
-    <string name="verification">Verification code sent!</string>
+    <string name="verification">Verification code sent! Auto-verifying</string>
     <string name="no_result_found">No result found. Contact team Agrovamp</string>
     <string name="check_internet">Check your internet connection</string>
     <string name="scan_qr_code">Scan QR code</string>
@@ -57,4 +57,14 @@
     <string name="pump_off">Pump turned OFF</string>
     <string name="motor_on">Motor turned ON</string>
     <string name="motor_off">Motor turned OFF</string>
+    <string name="security">Security</string>
+    <string name="humidity">Humidity</string>
+    <string name="where_is_intruder">Where is intruder?</string>
+    <string name="at_boundary">Intruder at farm boundary</string>
+    <string name="outside_boundary">Intruder outside farm</string>
+    <string name="inside_boundary">Intruder inside farm</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="please_enter_otp">Please enter the OTP</string>
+    <string name="invalid_otp">Invalid OTP</string>
+    <string name="wrong_number_edit">Wrong number? Edit</string>
 </resources>

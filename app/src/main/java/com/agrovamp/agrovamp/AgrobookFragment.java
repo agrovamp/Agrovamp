@@ -217,7 +217,8 @@ public class AgrobookFragment extends Fragment {
             progressDialog.show();
 
             //getting the storage reference
-            StorageReference sRef = storageReference.child(STORAGE_PATH_UPLOADS + qrCode + "/" + videoNameEditText.getText().toString() + "_" + System.currentTimeMillis() + "." + getFileExtension(filePath));
+            StorageReference sRef = storageReference.child(STORAGE_PATH_UPLOADS + qrCode + "/" +
+                    videoNameEditText.getText().toString() + "_" + System.currentTimeMillis() + "." + getFileExtension(filePath));
 
             //adding the file to reference
             sRef.putFile(filePath)

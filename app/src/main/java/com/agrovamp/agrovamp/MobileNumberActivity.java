@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,6 +41,13 @@ public class MobileNumberActivity extends AppCompatActivity {
     private EditText phoneEditText;
     private Button nextButton;
 
+    private EditText otpEditText;
+    private Button otpNextButton;
+    private TextView reenterPhoneTextView;
+
+    private LinearLayout phoneLayout;
+    private LinearLayout otpLayout;
+
     private FirebaseUser firebaseUser;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase database;
@@ -59,11 +68,18 @@ public class MobileNumberActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
 
+        otpEditText = findViewById(R.id.otp_edit_text);
+        otpNextButton = findViewById(R.id.otp_next_button);
+        reenterPhoneTextView = findViewById(R.id.reenter_phone_textview);
+
+        phoneLayout = findViewById(R.id.phone_layout);
+        otpLayout = findViewById(R.id.otp_layout);
+
+        otpLayout.setVisibility(View.GONE);
+
         dialog = new ProgressDialog(MobileNumberActivity.this);
         dialog.setMessage(getString(R.string.please_wait));
         dialog.setCancelable(false);
-        dialog.setIndeterminate(true);
-
 
         if (firebaseUser != null) {
             // Go to main activity
@@ -97,6 +113,8 @@ public class MobileNumberActivity extends AppCompatActivity {
                             new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                                 @Override
                                 public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+                                    reference.child(qrId).child("user").child("phone").setValue(phone);
+                                    otpEditText.setText(phoneAuthCredential.getSmsCode());
                                     Toast.makeText(getApplicationContext(), getString(R.string.verification_success), Toast.LENGTH_SHORT).show();
                                     signInWithPhoneCredentials(phoneAuthCredential);
                                 }
@@ -108,9 +126,12 @@ public class MobileNumberActivity extends AppCompatActivity {
                                 }
 
                                 @Override
-                                public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                     dialog.dismiss();
-                                    super.onCodeSent(s, forceResendingToken);
+                                    phoneLayout.setVisibility(View.GONE);
+                                    otpLayout.setVisibility(View.VISIBLE);
+                                    showOTPLayout(verificationId);
+                                    super.onCodeSent(verificationId, forceResendingToken);
                                     Toast.makeText(getApplicationContext(), R.string.verification, Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -129,7 +150,6 @@ public class MobileNumberActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             dialog.dismiss();
                             Log.d(TAG, "QR: " + qrId);
-                            reference.child(qrId).child("user").child("phone").setValue(phone);
                             Intent i = new Intent(MobileNumberActivity.this, NameActivity.class);
                             i.putExtra(QRCodeActivity.KEY_QR, qrId);
                             startActivity(i);
@@ -139,5 +159,31 @@ public class MobileNumberActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    public void showOTPLayout(final String verificationId) {
+        otpEditText.requestFocus();
+        otpNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.show();
+                String otp = otpEditText.getText().toString();
+                if (otp.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), R.string.please_enter_otp, Toast.LENGTH_SHORT).show();
+                } else {
+                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, otp);
+                    signInWithPhoneCredentials(credential);
+                }
+            }
+        });
+
+        reenterPhoneTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                otpLayout.setVisibility(View.GONE);
+                phoneLayout.setVisibility(View.VISIBLE);
+                phoneEditText.setText(phone);
+            }
+        });
     }
 }

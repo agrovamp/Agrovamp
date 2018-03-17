@@ -118,7 +118,7 @@ public class QRCodeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 dialog.show();
                 qrCode = qrIdEditText.getText().toString();
-                reference.child(qrCode).addValueEventListener(new ValueEventListener() {
+                reference.child(qrCode).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
@@ -126,6 +126,7 @@ public class QRCodeActivity extends AppCompatActivity {
                             Log.d(UserMainActivity.TAG, "QR: " + qrCode);
                             dialog.dismiss();
                             startActivity(new Intent(QRCodeActivity.this, MobileNumberActivity.class).putExtra(KEY_QR, qrCode));
+                            finish();
                         } else {
                             dialog.dismiss();
                             Toast.makeText(getApplicationContext(), getString(R.string.no_result_found), Toast.LENGTH_SHORT).show();

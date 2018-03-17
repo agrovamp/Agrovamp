@@ -122,6 +122,27 @@ public class UserMainActivity extends AppCompatActivity
             }
         });
 
+        reference.child(qrId).child("security").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    long irValue = (long) dataSnapshot.child("ir").getValue();
+                    if (irValue == 0) {
+                        Toast.makeText(getApplicationContext(), getString(R.string.outside_boundary), Toast.LENGTH_SHORT).show();
+                    } else if (irValue == 1) {
+                        Toast.makeText(getApplicationContext(), getString(R.string.at_boundary), Toast.LENGTH_SHORT).show();
+                    } else if (irValue == 2) {
+                        Toast.makeText(getApplicationContext(), getString(R.string.inside_boundary), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_frame_layout, new FarmFragment());
         fragmentTransaction.commit();
