@@ -38,7 +38,6 @@ public class UserMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         FarmFragment.OnFragmentInteractionListener,
         FAQFragment.OnFragmentInteractionListener,
-        HelpFragment.OnFragmentInteractionListener,
         MarketplaceFragment.OnFragmentInteractionListener,
         AgrobookFragment.OnFragmentInteractionListener,
         GovtFragment.OnFragmentInteractionListener{
@@ -204,9 +203,7 @@ public class UserMainActivity extends AppCompatActivity
         } else if (id == R.id.nav_faq) {
             fragment = new FAQFragment();
         } else if (id == R.id.nav_marketplace) {
-            fragment = new MarketplaceFragment();
-        } else if (id == R.id.nav_faq) {
-            fragment = new HelpFragment();
+            openMarketplaceApp();
         } else if (id == R.id.nav_agrobook) {
             fragment = new AgrobookFragment();
         } else if (id == R.id.nav_govt) {
@@ -222,6 +219,19 @@ public class UserMainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void openMarketplaceApp() {
+        Intent intent = getPackageManager().getLaunchIntentForPackage("com.agrovamp.marketplace");
+        if (intent != null) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), R.string.app_not_found, Toast.LENGTH_SHORT).show();
+            new AlertDialog.Builder(getApplicationContext())
+                    .setMessage(R.string.marketplace_not_found)
+                    .show();
+        }
     }
 
     @Override

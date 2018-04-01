@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:background="@color/colorPrimary"
+            android:shadowColor="@android:color/transparent"
             android:text="@string/next"
             android:textColor="@android:color/white" />
     </LinearLayout>
@@ -78,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="@string/wrong_number_edit"
+            android:shadowColor="@android:color/transparent"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
 </LinearLayout>

@@ -35,6 +35,8 @@ public class SummaryFragment extends Fragment {
     private DatabaseReference reference;
     private FirebaseDatabase database;
 
+    private Context context;
+
     public String qrId;
 
     public SummaryFragment() {
@@ -52,6 +54,8 @@ public class SummaryFragment extends Fragment {
 
         FarmFragment farmFragment = (FarmFragment) getParentFragment();
         qrId = farmFragment.getQrId();
+
+        context = farmFragment.getActivity().getApplicationContext();
 
         database = FirebaseDatabase.getInstance();
         Log.d(TAG, "QR: " + qrId);

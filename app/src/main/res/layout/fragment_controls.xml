@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:padding="20dp"
     tools:context="com.agrovamp.agrovamp.ControlsFragment">
 
@@ -13,15 +14,28 @@
         android:layout_height="wrap_content"
         android:text="@string/control_the_motor_and_pump_of_your_farm_here" />
 
-    <Switch
-        android:id="@+id/ir_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="@string/security"
-        android:checked="true"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_marginTop="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:textSize="14sp"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:text="@string/security"/>
+        <Switch
+            android:id="@+id/ir_switch"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:checked="true"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
     <!--<Switch-->
         <!--android:id="@+id/motor_switch"-->
@@ -33,23 +47,51 @@
         <!--android:layout_marginTop="50dp"-->
         <!--android:layout_gravity="center"-->
         <!--/>-->
-    <Switch
-        android:id="@+id/pump_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="@string/pump"
-        android:checked="true"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:textSize="14sp"
+            android:layout_weight="2"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:text="@string/pump"/>
+        <Switch
+            android:id="@+id/pump_switch"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/intruder_textview"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         tools:text="@string/at_boundary"/>
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:background="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/predictions"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/black"/>
+
 </LinearLayout>

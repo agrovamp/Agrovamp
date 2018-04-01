@@ -49,6 +49,7 @@ public class MarketplaceFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(getString(R.string.market_place));
         }
+
         return view;
     }
 

@@ -107,4 +107,8 @@
     <string name="scheme6">Tractor Loan</string>
     <string name="scheme7">Agri Gold Loan</string>
     <string name="scheme8">High value Agri Loan</string>
+    <string name="enter_video_name">Please enter the name for your video</string>
+    <string name="predictions">Predictions</string>
+    <string name="app_not_found">Agrovamp Market place does not found</string>
+    <string name="marketplace_not_found">It seems that you have not installed the Agrovamp Marketplace. Please install the Agrovamp Marketplace and try again.</string>
 </resources>

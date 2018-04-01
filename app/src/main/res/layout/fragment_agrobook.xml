@@ -18,9 +18,10 @@
         <Button
             android:id="@+id/choose_button"
             android:layout_width="wrap_content"
-            android:background="#0BD175"
+            android:background="@color/colorAccent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
+            android:shadowColor="@android:color/transparent"
             android:layout_weight="1"
             android:text="@string/choose" />
 
@@ -36,12 +37,13 @@
 
 
     <ImageView
+        android:layout_margin="30dp"
         android:id="@+id/video_thumbnail_imageview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_height="400dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearLayout" />
+        android:contentDescription="@string/video_thumbnail"
+        android:layout_below="@+id/linearLayout"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +52,7 @@
         android:orientation="vertical">
 
         <Button
-            android:background="#0BD175"
+            android:background="@color/colorPrimary"
             android:textColor="@android:color/white"
             android:id="@+id/upload_button"
             android:layout_width="match_parent"

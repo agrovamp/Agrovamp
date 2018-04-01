@@ -105,6 +105,10 @@ public class MobileNumberActivity extends AppCompatActivity {
                     dialog.dismiss();
                     Toast.makeText(getApplicationContext(), getString(R.string.enter_a_valid_mobile_number), Toast.LENGTH_SHORT).show();
                 } else {
+                    if (!phone.startsWith("+91")) {
+                        phone = "+91" + phone;
+                        Log.d(TAG, phone);
+                    }
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
                             phone,
                             60,

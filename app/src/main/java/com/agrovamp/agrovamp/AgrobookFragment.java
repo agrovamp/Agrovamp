@@ -5,21 +5,28 @@ import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.Image;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -41,6 +48,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
  */
 public class AgrobookFragment extends Fragment {
 
+    public static final String TAG = AgrobookFragment.class.getSimpleName();
     public static final String STORAGE_PATH_UPLOADS = "agrobook/";
     public static final String DATABASE_PATH_UPLOADS = "uploads";
     public static final int PICK_IMAGE_REQUEST = 234;
@@ -62,8 +70,10 @@ public class AgrobookFragment extends Fragment {
     private Button chooseButton;
     private EditText videoNameEditText;
     private Button uploadButton;
+    private ImageView videoThumbnailImageView;
 
     private String qrCode;
+    private Context context;
 
     private OnFragmentInteractionListener mListener;
 
@@ -84,6 +94,8 @@ public class AgrobookFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        context = getActivity();
+
         UserMainActivity activity = (UserMainActivity) getActivity();
         qrCode = activity.getQrId();
 
@@ -101,6 +113,7 @@ public class AgrobookFragment extends Fragment {
         chooseButton = (Button) view.findViewById(R.id.choose_button);
         uploadButton = (Button) view.findViewById(R.id.upload_button);
         videoNameEditText = (EditText) view.findViewById(R.id.video_name_edit_text);
+        videoThumbnailImageView = (ImageView) view.findViewById(R.id.video_thumbnail_imageview);
 
         uploadButton.setEnabled(false);
 
@@ -135,7 +148,11 @@ public class AgrobookFragment extends Fragment {
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadFile();
+                if (videoNameEditText.getText().toString().isEmpty()) {
+                    Toast.makeText(getParentFragment().getContext(), getString(R.string.enter_video_name), Toast.LENGTH_SHORT).show();
+                } else {
+                    uploadFile();
+                }
             }
         });
 
@@ -190,8 +207,17 @@ public class AgrobookFragment extends Fragment {
                 data != null &&
                 data.getData() != null) {
             filePath = data.getData();
+            Log.i(TAG, filePath.getPath());
+            Bitmap bitmap = createVideoThumbNail(filePath.getPath());
+            Glide.with(context)
+                    .load(filePath)
+                    .into(videoThumbnailImageView);
             Toast.makeText(getActivity(), R.string.file_selected, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public Bitmap createVideoThumbNail(String path){
+        return ThumbnailUtils.createVideoThumbnail(path, MediaStore.Video.Thumbnails.FULL_SCREEN_KIND);
     }
 
     public void showFileChooser() {

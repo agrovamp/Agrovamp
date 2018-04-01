@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/scan_qr_code"
-        android:background="#0BD175"
+        android:background="@color/colorAccent"
+        android:shadowColor="@android:color/transparent"
         android:layout_marginTop="50dp"
         android:textColor="#ffffff"/>
 
@@ -33,15 +34,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/manually"/>
+        android:layout_below="@id/manually"
+        android:inputType="number" />
 
     <Button
         android:id="@+id/next_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/next"
-        android:background="#0BD175"
+        android:background="@color/colorPrimary"
         android:textColor="#ffffff"
+        android:shadowColor="@android:color/transparent"
         android:layout_below="@id/qr_id_edit_text"/>
 
 </RelativeLayout>

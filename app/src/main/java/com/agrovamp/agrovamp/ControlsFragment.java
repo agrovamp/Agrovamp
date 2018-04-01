@@ -54,7 +54,10 @@ public class ControlsFragment extends Fragment {
     private Switch pumpSwitch;
     private TextView intruderTextView;
 
+    private Context context;
+
     private PreferenceManager preferenceManager;
+
     public ControlsFragment() {
         // Required empty public constructor
     }
@@ -75,6 +78,8 @@ public class ControlsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FarmFragment farmFragment = (FarmFragment) getParentFragment();
+
+        context = farmFragment.getActivity().getApplicationContext();
 
         preferenceManager = new PreferenceManager(getParentFragment().getActivity());
 
@@ -135,15 +140,19 @@ public class ControlsFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     long irValue = (long) dataSnapshot.child("ir").getValue();
-                    if (irValue == 0) {
-                        intruderTextView.setTextColor(getParentFragment().getActivity().getResources().getColor(R.color.green));
-                        intruderTextView.setText(R.string.outside_boundary);
-                    } else if (irValue == 1) {
-                        intruderTextView.setTextColor(getParentFragment().getActivity().getResources().getColor(R.color.yellow));
-                        intruderTextView.setText(R.string.at_boundary);
-                    } else if (irValue == 2) {
-                        intruderTextView.setTextColor(getParentFragment().getActivity().getResources().getColor(R.color.red));
-                        intruderTextView.setText(R.string.inside_boundary);
+                    if (context != null && context.getResources() != null) {
+                        if (irValue == 0) {
+                            intruderTextView.setTextColor(context.getResources().getColor(R.color.dot_dark_screen2));
+                            intruderTextView.setText(R.string.outside_boundary);
+                        } else if (irValue == 1) {
+                            intruderTextView.setTextColor(context.getResources().getColor(R.color.dot_dark_screen3));
+                            intruderTextView.setText(R.string.at_boundary);
+                        } else if (irValue == 2) {
+                            intruderTextView.setTextColor(context.getResources().getColor(R.color.dot_dark_screen1));
+                            intruderTextView.setText(R.string.inside_boundary);
+                        }
+                    } else {
+                        Log.d(TAG, "context is null");
                     }
                 }
             }
@@ -159,10 +168,13 @@ public class ControlsFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 reference.child("controls").child("pump").setValue(isChecked);
-                if(isChecked)
-                    Toast.makeText(getParentFragment().getActivity().getApplicationContext(), getParentFragment().getActivity().getString(R.string.pump_on), Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getParentFragment().getActivity().getApplicationContext(), getParentFragment().getActivity().getString(R.string.pump_off), Toast.LENGTH_SHORT).show();
+                if (context != null) {
+                    if (isChecked)
+                        Toast.makeText(context, context.getString(R.string.pump_on), Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(context, context.getString(R.string.pump_off), Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 

@@ -24,10 +24,11 @@
         android:textSize="24sp" />
 
     <Spinner
+        android:padding="10dp"
         android:id="@+id/language_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/next_button"
@@ -35,6 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/next"
+        android:shadowColor="@android:color/transparent"
         android:background="@color/colorPrimary"
         android:textColor="@android:color/white"/>
 

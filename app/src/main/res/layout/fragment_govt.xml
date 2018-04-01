@@ -12,7 +12,7 @@
         android:orientation="vertical">
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -21,7 +21,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/heading"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -29,77 +29,76 @@
                 android:id="@+id/scheme1_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@color/colorPrimary"
-                android:clickable="true"
+                android:layout_margin="10dp"
+                android:background="@color/dot_dark_screen2"
                 android:onClick="link1"
                 android:text="@string/scheme1"
                 android:textColor="@android:color/white"
                 tools:ignore="OnClick" />
 
             <Button
+                android:layout_margin="10dp"
                 android:id="@+id/scheme2_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@color/colorPrimary"
+                android:background="@color/bg_screen1"
                 android:clickable="true"
                 android:text="@string/scheme2"
                 android:textColor="@android:color/white" />
 
             <Button
+                android:layout_margin="10dp"
                 android:id="@+id/scheme3_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@color/colorPrimary"
+                android:background="@color/dot_dark_screen4"
                 android:clickable="true"
                 android:text="@string/scheme3"
                 android:textColor="@android:color/white" />
 
             <Button
+                android:layout_margin="10dp"
                 android:id="@+id/scheme4_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@color/colorPrimary"
+                android:background="@color/bg_screen5"
                 android:clickable="true"
                 android:text="@string/scheme4"
                 android:textColor="@android:color/white" />
             <Button
+                android:layout_margin="10dp"
                 android:id="@+id/scheme5_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@color/colorPrimary"
+                android:background="@color/bg_screen3"
                 android:clickable="true"
                 android:text="@string/scheme5"
                 android:textColor="@android:color/white" />
 
             <Button
+                android:layout_margin="10dp"
                 android:id="@+id/scheme6_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@color/colorPrimary"
+                android:background="@color/bg_screen4"
                 android:clickable="true"
                 android:text="@string/scheme6"
                 android:textColor="@android:color/white" />
             <Button
+                android:layout_margin="10dp"
                 android:id="@+id/scheme7_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@color/colorPrimary"
+                android:background="@color/dot_light_screen1"
                 android:clickable="true"
                 android:text="@string/scheme7"
                 android:textColor="@android:color/white" />
             <Button
+                android:layout_margin="10dp"
                 android:id="@+id/scheme8_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@color/colorPrimary"
+                android:background="@color/dot_dark_screen3"
                 android:clickable="true"
                 android:text="@string/scheme8"
                 android:textColor="@android:color/white" />
