@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.agrovamp.agrovamp.GovtFragment"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_head"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/heading"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/scheme1_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:onClick="link1"
+                android:text="@string/scheme1"
+                android:textColor="@android:color/white"
+                tools:ignore="OnClick" />
+
+            <Button
+                android:id="@+id/scheme2_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:text="@string/scheme2"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/scheme3_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:text="@string/scheme3"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/scheme4_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:text="@string/scheme4"
+                android:textColor="@android:color/white" />
+            <Button
+                android:id="@+id/scheme5_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:text="@string/scheme5"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/scheme6_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:text="@string/scheme6"
+                android:textColor="@android:color/white" />
+            <Button
+                android:id="@+id/scheme7_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:text="@string/scheme7"
+                android:textColor="@android:color/white" />
+            <Button
+                android:id="@+id/scheme8_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:text="@string/scheme8"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

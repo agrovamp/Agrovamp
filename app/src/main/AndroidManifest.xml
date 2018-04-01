@@ -9,25 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".MobileNumberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserMainActivity"
+            android:label="@string/title_activity_user_main"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".NameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QRCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MobileNumberActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".UserMainActivity"
-            android:label="@string/title_activity_user_main"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".NameActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".QRCodeActivity"
-            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

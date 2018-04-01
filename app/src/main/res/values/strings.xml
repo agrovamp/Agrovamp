@@ -20,6 +20,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="your_farm">Your Farm</string>
     <string name="faq">FAQ</string>
+    <string name="government_schemes">Government Schemes</string>
     <string name="help">Help</string>
     <string name="market_place">Marketplace</string>
     <string name="summary">Summary</string>
@@ -67,4 +68,69 @@
     <string name="please_enter_otp">Please enter the OTP</string>
     <string name="invalid_otp">Invalid OTP</string>
     <string name="wrong_number_edit">Wrong number? Edit</string>
+
+
+    <string name="ques1">1. Why is organic farming considered to be environmentally friendly?</string>
+    <string name="ans1">Organic farming is a sustainable farming system that aims to produce healthy crops and livestock, without the use of artificial pesticides and chemical fertilisers (or \'off-farm inputs\') that may be harmful to the environment. Organic farms also produce less carbon dioxide, which is a by-product of the fossil fuels used in producing, transporting and spreading of nitrate fertilisers, which are used in abundance on conventional farms.</string>
+    <string name="ques2">2.   How does organic farming fit into the EUs Common Agricultural Policy?</string>
+    <string name="ans2">The new reform proposals for the Common Agricultural Policy (CAP) include incentives for farmers to pursue environmentally friendly farming methods. 30% of payments to farmers will now be linked to meeting environmental targets. Under this new environmental regime, organic farms are deemed to be green by definition and organic farmers are entitled to environmental, or green, payments, without fulfilling any further obligations.
+
+</string>
+    <string name="ques3">3.   Why is organic farming important?</string>
+    <string name="ans3">Consumer demand for organic products in the EU has been growing steadily for over a decade, and the share of the organic farming sector is on the increase in most Member States. Therefore, it is a key part of Europes bioeconomy. This is an economy built on biological resources with varying emphasis on forestry, agriculture, the marine, or waste, depending on existing practices and available resources in different member states.</string>
+    <string name="ques4">4.   How can organic farming contribute to jobs and growth?</string>
+    <string name="ans4">The European bioeconomy is worth €2 trillion and provides 22 million jobs. In 2012, the European Commission released its strategy for the bioeconomy in Europe, entitled Innovating for Sustainable Growth: A Bioeconomy for Europe.</string>
+    <string name="ques5">5.   How widespread is organic farming in the EU?</string>
+    <string name="ans5">The most recent figures from the European Commission show that, as of 2007, there were over 180,000 organic farms in the EU, covering 7.2 million hectares of land – an area larger than Ireland. 24% of the worlds organic land is located in Europe, although this accounts for just 4% of the agricultural land in the EU. The countries with the largest organic farming area are Italy, Spain and Germany.</string>
+    <string name="ques6">6.   Are there rules on what constitutes organic farming?</string>
+    <string name="ans6">EU Regulations EC/834/2007 and EC/967/2008 deal with the production and labeling of organic products. They lay out stringent rules on organic farming best practices, and aim to foster the continuing development of the organic farming industry. The European Commission has just completed a public consultation on organic farming, with a view to simplifying the legal framework, while ensuring that standards are not watered down. The results of the consultation, which received over 45,000 responses, will be published on the Commissions organic farming website.</string>
+
+    <string name="ques7">7.   Why is this legislation necessary?</string>
+    <string name="ans7">The legislation on organic production plays an important role in maintaining the high quality of organic produce and protects consumers against fraudulent labeling.</string>
+    <string name="ques8">8.   Are the standards for organic farming the same across all EU Member States?</string>
+    <string name="ans8">The EU Regulation is a base-line standard which all Member States must adhere to, but the relevant control bodies in some states may introduce stricter requirements. Later this year, the European Parliament will vote on a report by the European Court of Auditors, which calls on Member States to strengthen their supervisory role over control bodies, and for the Commission to ensure that the countries adhering to the standards for organic production are adequately supervised.</string>
+    <string name="ques9">9.  Why is the use of chemical fertilisers restricted in organic agriculture?</string>
+    <string name="ans9">The use of chemical fertilisers is restricted for a number of reasons.
+
+First, the production and distribution of chemical fertilisers uses large amounts of fossil fuels, which is both damaging to the environment and increases dependence on unsustainable external inputs.
+
+Second, the substitution of natural, renewable plant nutrition with synthetic substances disrupts natural cycles, pollutes water supplies through runoff and leaves toxic residues in the soil.
+
+Third, the use of these methods causes a gradual degradation of soil quality, resulting in crops that are less healthy and less resistant to disease and pests.</string>
+    <string name="ques10">10.  How do organic farmers fertilise crops and control pests without using chemical fertilisers and pesticides?</string>
+    <string name="ans10">Organic farming is built primarily on the principle of maintaining healthy soil, through the use of compost, catch crops, green manure and other natural measures to introduce nutrients and organic material. Healthy soil encourages the growth of healthy crops, and healthy crops will have increased resistance to disease.
+
+Organic farmers are also encouraged to intelligently select their crop species based on their resistance to pests and disease. Weeds and pests are controlled through crop rotation techniques, physical methods and the protection of natural enemies of pests, such as spiders and birds.</string>
+    <string name="heading">Government Schemes For Farmers Welfare</string>
+    <string name="scheme1">Gramin Bhandaran Yojana</string>
+    <string name="scheme2">Livestock Insurance Scheme (India)</string>
+    <string name="scheme3">National Scheme on Welfare of Fishermen</string>
+    <string name="scheme4">Rashtriya Krishi Vikas Yojana</string>
+    <string name="scheme5">Kisan Credit Card</string>
+    <string name="scheme6">Tractor Loan</string>
+    <string name="scheme7">Agri Gold Loan</string>
+    <string name="scheme8">High value Agri Loan</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next_slide">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Monitor Your Farm</string>
+    <string name="slide_1_desc">Get complete overview of farming amd regulate it !</string>
+
+    <string name="slide_2_title">Multi-Language</string>
+    <string name="slide_2_desc">Language is the road map of a culture !</string>
+
+    <string name="slide_3_title">Water Pump Control</string>
+    <string name="slide_3_desc">Water plants either manually or automatically !</string>
+
+    <string name="slide_4_title">Marketplace</string>
+    <string name="slide_4_desc">BUY, SEll AND RENT!</string>
+
+    <string name="slide_5_title">Farm Security</string>
+    <string name="slide_5_desc">Keeps your farm secure from intruders</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
 </resources>

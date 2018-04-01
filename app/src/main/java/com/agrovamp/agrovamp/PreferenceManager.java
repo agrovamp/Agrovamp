@@ -79,4 +79,12 @@ public class PreferenceManager {
     public boolean isFirstTime() {
         return preferences.getBoolean(IS_FIRST_TIME, false);
     }
+    public boolean isFirstTimeLaunch() {
+        return preferences.getBoolean(IS_FIRST_TIME, true);
+    }
+
+    public void setFirstTimeLaunch(boolean isFirstTime) {
+        editor.putBoolean(IS_FIRST_TIME, isFirstTime);
+        editor.commit();
+    }
 }

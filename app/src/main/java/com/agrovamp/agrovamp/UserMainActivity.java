@@ -40,12 +40,12 @@ public class UserMainActivity extends AppCompatActivity
         FAQFragment.OnFragmentInteractionListener,
         HelpFragment.OnFragmentInteractionListener,
         MarketplaceFragment.OnFragmentInteractionListener,
-        AgrobookFragment.OnFragmentInteractionListener{
+        AgrobookFragment.OnFragmentInteractionListener,
+        GovtFragment.OnFragmentInteractionListener{
 
     public static final String TAG = UserMainActivity.class.getSimpleName();
 
     private FirebaseAuth firebaseAuth;
-    private FirebaseUser firebaseUser;
 
     private FirebaseDatabase database;
     private DatabaseReference reference;
@@ -81,7 +81,6 @@ public class UserMainActivity extends AppCompatActivity
         Log.d(TAG, "QR: " + qrId);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
 
@@ -206,10 +205,12 @@ public class UserMainActivity extends AppCompatActivity
             fragment = new FAQFragment();
         } else if (id == R.id.nav_marketplace) {
             fragment = new MarketplaceFragment();
-        } else if (id == R.id.nav_help) {
+        } else if (id == R.id.nav_faq) {
             fragment = new HelpFragment();
         } else if (id == R.id.nav_agrobook) {
             fragment = new AgrobookFragment();
+        } else if (id == R.id.nav_govt) {
+            fragment = new GovtFragment();
         }
 
         if (fragment != null) {
