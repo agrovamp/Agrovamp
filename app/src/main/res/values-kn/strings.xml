@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
+    <string name="rent">Rent</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="add_to_wishlist">Add to wishlist</string>
+</resources>

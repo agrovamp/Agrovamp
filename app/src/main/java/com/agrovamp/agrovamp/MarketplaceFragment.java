@@ -3,7 +3,9 @@ package com.agrovamp.agrovamp;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +52,19 @@ public class MarketplaceFragment extends Fragment {
             mListener.onFragmentInteraction(getString(R.string.market_place));
         }
 
+        ViewPager viewPager = view.findViewById(R.id.view_pager);
+        setUpViewPager(viewPager);
+        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.detail_tabs);
+        tabLayout.setupWithViewPager(viewPager);
         return view;
+    }
+
+    public void setUpViewPager(ViewPager viewPager) {
+        MarketTabAdapter adapter = new MarketTabAdapter(getChildFragmentManager());
+        adapter.addFragment(BuyFragment.newInstance(), getString(R.string.buy));
+        adapter.addFragment(SellFragment.newInstance(), getString(R.string.sell));
+        adapter.addFragment(RentFragment.newInstance(), getString(R.string.rent));
+        viewPager.setAdapter(adapter);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

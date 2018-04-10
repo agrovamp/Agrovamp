@@ -173,7 +173,6 @@ public class ControlsFragment extends Fragment {
                         Toast.makeText(context, context.getString(R.string.pump_on), Toast.LENGTH_SHORT).show();
                     else
                         Toast.makeText(context, context.getString(R.string.pump_off), Toast.LENGTH_SHORT).show();
-
                 }
             }
         });

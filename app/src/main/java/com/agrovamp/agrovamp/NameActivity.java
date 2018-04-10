@@ -49,6 +49,8 @@ public class NameActivity extends AppCompatActivity {
         dialog = new ProgressDialog(NameActivity.this);
         dialog.setCancelable(false);
         dialog.setMessage(getString(R.string.please_wait));
+        dialog.setCancelable(false);
+
 
         firstNameEditText = (EditText) findViewById(R.id.first_name_edit_text);
         lastNameEditText = (EditText) findViewById(R.id.last_name_edit_text);
@@ -62,7 +64,7 @@ public class NameActivity extends AppCompatActivity {
 
         Log.d(TAG, "QR: " + qrId);
 
-        reference.child(qrId).child("user").child("name").addValueEventListener(new ValueEventListener() {
+        reference.child(qrId).child("user").child("name").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {

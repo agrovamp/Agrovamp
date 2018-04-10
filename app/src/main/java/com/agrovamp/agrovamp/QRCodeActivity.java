@@ -32,6 +32,7 @@ import java.util.Locale;
 public class QRCodeActivity extends AppCompatActivity {
 
     public static final String KEY_QR = "KEY_QR";
+    private static final String TAG = QRCodeActivity.class.getSimpleName();
 
     private EditText qrIdEditText;
     private Button nextButton;
@@ -54,6 +55,8 @@ public class QRCodeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode);
 
+        Log.d(TAG, "QR code activity");
+
         auth = FirebaseAuth.getInstance();
         firebaseUser = auth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
@@ -62,6 +65,7 @@ public class QRCodeActivity extends AppCompatActivity {
         dialog = new ProgressDialog(QRCodeActivity.this);
         dialog.setMessage(getString(R.string.please_wait));
         dialog.setIndeterminate(true);
+        dialog.setCancelable(false);
 
         preferenceManager = new PreferenceManager(this);
 
@@ -155,26 +159,31 @@ public class QRCodeActivity extends AppCompatActivity {
             } else {
                 qrCode = result.getContents();
                 dialog.show();
-                reference.child(qrCode).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            dialog.dismiss();
-                            preferenceManager.storeQRCode(qrCode);
-                            startActivity(new Intent(QRCodeActivity.this, MobileNumberActivity.class).putExtra(KEY_QR, qrCode));
-                            finish();
-                        } else {
-                            dialog.dismiss();
-                            Toast.makeText(getApplicationContext(), getString(R.string.no_result_found), Toast.LENGTH_SHORT).show();
+                if (qrCode.contains(".") || qrCode.contains("#") || qrCode.contains("$") ||qrCode.contains("[") || qrCode.contains("]")) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.no_result_found), Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                } else {
+                    reference.child(qrCode).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                dialog.dismiss();
+                                preferenceManager.storeQRCode(qrCode);
+                                startActivity(new Intent(QRCodeActivity.this, MobileNumberActivity.class).putExtra(KEY_QR, qrCode));
+                                finish();
+                            } else {
+                                dialog.dismiss();
+                                Toast.makeText(getApplicationContext(), getString(R.string.no_result_found), Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        dialog.dismiss();
-                        Toast.makeText(getApplicationContext(), getString(R.string.check_internet), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            dialog.dismiss();
+                            Toast.makeText(getApplicationContext(), getString(R.string.check_internet), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);

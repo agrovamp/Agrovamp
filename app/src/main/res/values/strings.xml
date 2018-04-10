@@ -117,7 +117,7 @@ Organic farmers are also encouraged to intelligently select their crop species b
     <string name="start">GOT IT</string>
 
     <string name="slide_1_title">Monitor Your Farm</string>
-    <string name="slide_1_desc">Get complete overview of farming amd regulate it !</string>
+    <string name="slide_1_desc">Get complete overview of farming and regulate it !</string>
 
     <string name="slide_2_title">Multi-Language</string>
     <string name="slide_2_desc">Language is the road map of a culture !</string>
@@ -126,7 +126,7 @@ Organic farmers are also encouraged to intelligently select their crop species b
     <string name="slide_3_desc">Water plants either manually or automatically !</string>
 
     <string name="slide_4_title">Marketplace</string>
-    <string name="slide_4_desc">BUY, SEll AND RENT!</string>
+    <string name="slide_4_desc">BUY, SELL AND RENT!</string>
 
     <string name="slide_5_title">Farm Security</string>
     <string name="slide_5_desc">Keeps your farm secure from intruders</string>
@@ -139,4 +139,9 @@ Organic farmers are also encouraged to intelligently select their crop species b
     <string name="farm_reading">This is the current readings of your farm</string>
     <string name="app_not_found">Agrovamp Market place does not found</string>
     <string name="marketplace_not_found">It seems that you have not installed the Agrovamp Marketplace. Please install the Agrovamp Marketplace and try again.</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
+    <string name="rent">Rent</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="add_to_wishlist">Add to wishlist</string>
 </resources>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Agrovamp</string>
+    <string name="app_name">अग्रवामप</string>
     <string name="welcome">स्वागत हे</string>
     <string name="please_select_your_language">कृपया अपनी भाषा चुनें</string>
     <string name="next">आगामी</string>
@@ -8,7 +8,7 @@
     <string name="enter_a_valid_mobile_number">मान्य मोबाइल नंबर दर्ज करें</string>
     <string name="title_activity_user_main">UserMainActivity</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_open">bOpen navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">सेटिंग्स</string>
@@ -62,10 +62,11 @@
     <string name="at_boundary">घुसपैठिए खेत सीमा पर है</string>
     <string name="outside_boundary">घुसपैठिए खेत के बाहर है</string>
     <string name="inside_boundary">घुसपैठिए खेत के अंदर है</string>
-    <string name="enter_otp">Enter OTP</string>
-    <string name="please_enter_otp">Please enter the OTP</string>
-    <string name="invalid_otp">Invalid OTP</string>
-    <string name="wrong_number_edit">Wrong number? Edit</string>
+    <string name="government_schemes">सरकारी योजनाएं</string>
+    <string name="enter_otp">ओटीपी दर्ज करें</string>
+    <string name="please_enter_otp">कृपया ओटीपी दर्ज करें</string>
+    <string name="invalid_otp">अमान्य ओटीपी</string>
+    <string name="wrong_number_edit">गलत नंबर? संपादित करें</string>
 
     <string name="ques1">1. जैविक खेती पर्यावरण के अनुकूल माना जाता है?</string>
     <string name="ans1">जैविक खेती एक स्थायी कृषि प्रणाली है जिसका लक्ष्य है कि कृत्रिम कीटनाशकों और रासायनिक उर्वरक (या \ ऑफ-फ़ार्म इनपुट \) के उपयोग के बिना, जो कि पर्यावरण के लिए हानिकारक हो सकता है, बिना स्वस्थ फसलों और पशुओं का उत्पादन करना है। कार्बनिक खेतों में कम कार्बन डाइऑक्साइड का उत्पादन भी होता है, जो कि नाइट्रेट उर्वरकों के उत्पादन, परिवहन और फैलने में प्रयुक्त जीवाश्म ईंधन का उप-उत्पाद होता है, जो परंपरागत खेतों पर प्रचुरता में उपयोग किया जाता है।</string>
@@ -98,17 +99,46 @@
     <string name="ans10">कार्बनिक खेती पोषक तत्वों और कार्बनिक पदार्थों को पेश करने के लिए खाद, फसल, हरी खाद और अन्य प्राकृतिक उपायों के उपयोग के माध्यम से, स्वस्थ मिट्टी को बनाए रखने के सिद्धांत पर मुख्य रूप से बनाई गई है। स्वस्थ मिट्टी स्वस्थ फसलों की वृद्धि को प्रोत्साहित करती है, और स्वस्थ फसलों ने रोग के प्रति प्रतिरोध में वृद्धि की होगी।
 
         जैविक किसानों को भी उनकी फसल की प्रजातियों को कीट और बीमारी के प्रति प्रतिरोध के आधार पर बुद्धिमानी से चुनने के लिए प्रोत्साहित किया जाता है। मादा और कीटों को फसल की रोटेशन तकनीकों, भौतिक तरीकों और कीड़े के प्राकृतिक दुश्मनों की रक्षा जैसे कि मकड़ियों और पक्षियों द्वारा नियंत्रित किया जाता है।</string>
-    <string name="heading">Government scheme for Farmers welfare</string>
-    <string name="gramin_bhandaran_yojana">Gramin Bhandaran Yojana</string>
-    <string name="scheme2">Livestock Insurance Scheme (India)</string>
-    <string name="scheme3">National Scheme on Welfare of Fishermen</string>
-    <string name="scheme4">Rashtriya Krishi Vikas Yojana</string>
-    <string name="scheme5">Kisan Credit Card</string>
-    <string name="scheme6">Tractor Loan</string>
-    <string name="scheme7">Agri Gold Loan</string>
-    <string name="scheme8">High value Agri Loan</string>
-    <string name="enter_video_name">Please enter the name for your video</string>
-    <string name="predictions">Predictions</string>
-    <string name="app_not_found">Agrovamp Market place does not found</string>
-    <string name="marketplace_not_found">It seems that you have not installed the Agrovamp Marketplace. Please install the Agrovamp Marketplace and try again.</string>
+
+    <string name="heading">किसान कल्याण के लिए सरकार की योजना</string>
+    <string name="gramin_bhandaran_yojana">ग्रामीण भंडारण योजना</string>
+    <string name="scheme1">ग्रामीण भंडारण योजना</string>
+    <string name="scheme2">पशुधन बीमा योजना (भारत)</string>
+    <string name="scheme3">मछुआरों के कल्याण पर राष्ट्रीय योजना</string>
+    <string name="scheme4">राष्ट्रीय कृषि विकास योजना</string>
+    <string name="scheme5">किसान क्रेडिट कार्ड</string>
+    <string name="scheme6">ट्रैक्टर लोन</string>
+    <string name="scheme7">कृषि स्वर्ण ऋण</string>
+    <string name="scheme8">उच्च मूल्य कृषि ऋण</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next_slide">आगामी</string>
+    <string name="skip">छोड़ें</string>
+    <string name="start">समझ गया</string>
+
+    <string name="slide_1_title">अपने खेत की निगरानी करें</string>
+    <string name="slide_1_desc">खेती का पूरा अवलोकन करें और इसे विनियमित करें!</string>
+
+    <string name="slide_2_title">बहु-भाषा</string>
+    <string name="slide_2_desc">भाषा एक संस्कृति का मार्ग नक्शा है!</string>
+
+    <string name="slide_3_title">जल पम्प नियंत्रण</string>
+    <string name="slide_3_desc">पानी के पौधे या तो मैन्युअल रूप से या स्वचालित रूप से!</string>
+
+    <string name="slide_4_title">बाजार</string>
+    <string name="slide_4_desc">खरीदें, बेचें और किराया!</string>
+
+    <string name="slide_5_title">फार्म सुरक्षा</string>
+    <string name="slide_5_desc">अपने खेतों को घुसपैठियों से सुरक्षित रखता है</string>
+    <string name="enter_video_name">कृपया अपने वीडियो का नाम दर्ज करें</string>
+    जल पम्प नियंत्रण<string name="predictions">भविष्यवाणियों</string>
+    <string name="farm_reading">यह आपके खेत की वर्तमान रीडिंग है</string>
+
+    <string name="app_not_found">अग्रवामप बाज़ार नहीं मिला</string>
+    <string name="marketplace_not_found">ऐसा लगता है कि आपने एग्रोवैम बाज़ार स्थापित नहीं किया है कृपया अग्रवामप बाज़ार स्थापित करें और फिर से प्रयास करें।</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
+    <string name="rent">Rent</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="add_to_wishlist">Add to wishlist</string>
 </resources>

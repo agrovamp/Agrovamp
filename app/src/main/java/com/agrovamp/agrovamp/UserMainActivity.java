@@ -203,7 +203,7 @@ public class UserMainActivity extends AppCompatActivity
         } else if (id == R.id.nav_faq) {
             fragment = new FAQFragment();
         } else if (id == R.id.nav_marketplace) {
-            openMarketplaceApp();
+            fragment = new MarketplaceFragment();
         } else if (id == R.id.nav_agrobook) {
             fragment = new AgrobookFragment();
         } else if (id == R.id.nav_govt) {

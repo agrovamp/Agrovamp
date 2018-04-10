@@ -81,11 +81,13 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case "Marathi": languageCode = "mr";
                                 break;
+                            case "Kannada": languageCode = "kn";
+                                break;
                         }
                         preferenceManager.storeLanguageCode(languageCode);
                     }
                     setupLocale(languageCode);
-                    startActivity(new Intent(getApplicationContext(), QRCodeActivity.class));
+                    startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
                     finish();
                 }
             }

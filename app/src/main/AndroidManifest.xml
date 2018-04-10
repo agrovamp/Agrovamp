@@ -3,6 +3,7 @@
     package="com.agrovamp.agrovamp">
 
     <application
+        android:name=".Agrovamp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,6 +13,11 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MobileNumberActivity"
@@ -27,13 +33,8 @@
         <activity
             android:name=".QRCodeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".WelcomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".ProductDetailsActivity"></activity>
     </application>
 
 </manifest>
