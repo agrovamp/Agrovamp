@@ -1,13 +1,89 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.agrovamp.agrovamp.RentFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/product_name"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/productNameEditText"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:hint="@string/product_price"
+        android:layout_marginStart="8dp"
+        android:layout_below="@id/productNameEditText"
+        android:layout_marginEnd="8dp"
+        android:inputType="number"
+        android:id="@+id/productPriceEditText"/>
+    <EditText
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="top"
+        android:hint="@string/product_description"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_below="@id/productPriceEditText"
+        android:id="@+id/productDescriptionEditText"/>
 
-</FrameLayout>
+    <LinearLayout
+        android:padding="8dp"
+        android:layout_below="@id/productDescriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/startDateButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:shadowColor="@android:color/transparent"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:layout_margin="4dp"
+            android:text="@string/start_date"/>
+        <Button
+            android:id="@+id/endDateButton"
+            android:layout_width="0dp"
+            android:layout_margin="4dp"
+            android:textColor="@android:color/white"
+            android:shadowColor="@android:color/transparent"
+            android:layout_weight="1"
+            android:background="@color/dot_dark_screen2"
+            android:layout_height="wrap_content"
+            android:text="@string/end_date"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/chooseImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rentButton"
+        android:layout_marginBottom="9dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="@android:color/transparent"
+        android:textColor="@android:color/white"
+        android:text="@string/choose_a_picture"
+        android:padding="5dp"/>
+
+
+    <Button
+        android:id="@+id/rentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:text="@string/rent"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

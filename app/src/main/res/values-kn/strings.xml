@@ -1,8 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="buy">Buy</string>
-    <string name="sell">Sell</string>
-    <string name="rent">Rent</string>
-    <string name="add_to_cart">Add to Cart</string>
-    <string name="add_to_wishlist">Add to wishlist</string>
+    <string name="app_name">ಅಗ್ರೋವಮ್ಪ್</string>
+    <string name="welcome">ಸ್ವಾಗತ</string>
+    <string name="please_select_your_language">ದಯವಿಟ್ಟು ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ</string>
+    <string name="next">ಮುಂದೆ</string>
+    <string name="select_a_language">ಒಂದು ಭಾಷೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ</string>
+    <string name="user_selected">User selected:</string>
+    <string name="mobile_number">ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="enter_a_valid_mobile_number">ಮಾನ್ಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="title_activity_user_main">UserMainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="verification_success">ಪರಿಶೀಲನೆ ಯಶಸ್ಸು</string>
+    <string name="verification_failed">ಪರಿಶೀಲನೆ ವಿಫಲವಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸು</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="your_farm">ನಿಮ್ಮ ಫಾರ್ಮ್</string>
+    <string name="faq">ಫಾಕ್</string>
+    <string name="government_schemes">ಸರ್ಕಾರದ ಯೋಜನೆಗಳು</string>
+    <string name="help">ಸಹಾಯ</string>
+    <string name="market_place">ಮಾರುಕಟ್ಟೆ ಸ್ಥಳ</string>
+    <string name="summary">ಸಾರಾಂಶ</string>
+    <string name="controls">ನಿಯಂತ್ರಣಗಳು</string>
+    <string name="drone">ಡ್ರೋನ್</string>
+    <string name="camera_view">ಕ್ಯಾಮರಾ ವೀಕ್ಷಣೆ</string>
+    <string name="plant_seeds">ಸಸ್ಯ ಬೀಜಗಳು</string>
+    <string name="first_name">ಮೊದಲ ಹೆಸರು</string>
+    <string name="last_name">ಕೊನೆಯ ಹೆಸರು</string>
+    <string name="enter_your_name">ದಯವಿಟ್ಟು ಮುಂದುವರಿಸಲು ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="temperature">ತಾಪಮಾನ</string>
+    <string name="moisture">ತೇವಾಂಶ</string>
+    <string name="pressure">ಆರ್ದ್ರತೆ</string>
+    <string name="logout">ಲಾಗ್ ಔಟ್</string>
+    <string name="control_the_motor_and_pump_of_your_farm_here">ಇಲ್ಲಿ ನಿಮ್ಮ ಫಾರ್ಮ್ನ ಮೋಟಾರ್ ಮತ್ತು ಪಂಪ್ ಅನ್ನು ನಿಯಂತ್ರಿಸಿ</string>
+    <string name="verification">ಪರಿಶೀಲನಾ ಕೋಡ್ ಕಳುಹಿಸಲಾಗಿದೆ! ಸ್ವಯಂ ಪರಿಶೀಲನೆ</string>
+    <string name="no_result_found">ಯಾವುದೇ ಫಲಿತಾಂಶ ಕಂಡುಬಂದಿಲ್ಲ. ಸಂಪರ್ಕ ತಂಡ ಅಗ್ರ್ರಾಂಪ್</string>
+    <string name="check_internet">ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ</string>
+    <string name="scan_qr_code">QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</string>
+    <string name="or_nenter_code_manually">ಅಥವಾ\n\n ಕೋಡ್ ಅನ್ನು ಹಸ್ತಚಾಲಿತವಾಗಿ ನಮೂದಿಸಿ</string>
+    <string name="yes">ಹೌದು</string>
+    <string name="negative">No</string>
+    <string name="please_wait">ದಯಮಾಡಿ ನಿರೀಕ್ಷಿಸಿ…</string>
+    <string name="motor">ಮೋಟಾರ್</string>
+    <string name="pump">ಪಂಪ್</string>
+    <string name="set_timer">ಟೈಮರ್ ಹೊಂದಿಸಿ</string>
+    <string name="agrobook">ಅಗ್ರೋಬೂಕ್ </string>
+    <string name="choose">ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="enter_name_for_video">ವೀಡಿಯೊಗಾಗಿ ಹೆಸರನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="upload">ಅಪ್ಲೋಡ್ ಮಾಡಿ</string>
+    <string name="select_video">ವೀಡಿಯೊ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="select_a_video">ದಯವಿಟ್ಟು ವೀಡಿಯೊವನ್ನು ಮೊದಲು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="file_selected">ಫೈಲ್ ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ</string>
+    <string name="pump_on">ಪಂಪ್ ಆನ್ ಮಾಡಲಾಗಿದೆ</string>
+    <string name="pump_off">ಪಂಪ್ ಆಫ್ ಮಾಡಲಾಗಿದೆ</string>
+    <string name="motor_on">ಮೋಟಾರ್ ಆನ್ ಮಾಡಲಾಗಿದೆ</string>
+    <string name="motor_off">ಮೋಟಾರ್ ಆಫ್ ಮಾಡಲಾಗಿದೆ</string>
+    <string name="security">ಭದ್ರತೆ</string>
+    <string name="humidity">ಆರ್ದ್ರತೆ</string>
+    <string name="where_is_intruder">ಅನಾಹುತ ಎಲ್ಲಿದೆ?</string>
+    <string name="at_boundary">ಫಾರ್ಮ್ ಗಡಿರೇಖೆಯಲ್ಲಿ ಅನಾಹುತ</string>
+    <string name="outside_boundary">ಕೃಷಿ ಹೊರಗಿನ ಅನಾಹುತ</string>
+    <string name="inside_boundary">ಫಾರ್ಮ್ ಒಳಗೆ ಅನಾಹುತ</string>
+    <string name="enter_otp">OTP ಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="please_enter_otp">ದಯವಿಟ್ಟು OTP ಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="invalid_otp">ಅಮಾನ್ಯ OTP</string>
+    <string name="wrong_number_edit">ತಪ್ಪು ಸಂಖ್ಯೆ? ಸಂಪಾದಿಸಿ</string>
+
+
+    <string name="ques1">ಸಾವಯವ ಕೃಷಿ ಪರಿಸರ ಸ್ನೇಹಿ ಎಂದು ಏಕೆ ಪರಿಗಣಿಸಲಾಗಿದೆ?</string>
+    <string name="ans1">ಜೈವಿಕ ಕೃಷಿಯು ಸುಸ್ಥಿರ ಕೃಷಿ ವ್ಯವಸ್ಥೆಯಾಗಿದ್ದು, ಪರಿಸರಕ್ಕೆ ಹಾನಿಕಾರಕವಾಗಬಲ್ಲ ಕೃತಕ ಕೀಟನಾಶಕಗಳು ಮತ್ತು ರಾಸಾಯನಿಕ ರಸಗೊಬ್ಬರಗಳ (ಅಥವಾ \'ಆಫ್-ಫಾರ್ಮ್ ಇನ್ಪುಟ್ಗಳು\') ಬಳಸದೆ ಆರೋಗ್ಯಕರ ಬೆಳೆಗಳನ್ನು ಮತ್ತು ಜಾನುವಾರುಗಳನ್ನು ಉತ್ಪಾದಿಸುವ ಗುರಿ ಹೊಂದಿದೆ. ಸಾವಯವ ಕೃಷಿ ಸಹ ಕಡಿಮೆ ಇಂಗಾಲದ ಡೈಆಕ್ಸೈಡ್ ಅನ್ನು ಉತ್ಪಾದಿಸುತ್ತದೆ, ಇದು ಸಾಂಪ್ರದಾಯಿಕ ಫಸಲುಗಳ ಮೇಲೆ ಸಮೃದ್ಧವಾಗಿ ಬಳಸಲಾಗುವ ನೈಟ್ರೇಟ್ ರಸಗೊಬ್ಬರಗಳನ್ನು ಉತ್ಪಾದಿಸಲು, ಸಾಗಿಸಲು ಮತ್ತು ಹರಡುವುದರಲ್ಲಿ ಬಳಸಲಾಗುವ ಪಳೆಯುಳಿಕೆ ಇಂಧನಗಳ ಉತ್ಪನ್ನವಾಗಿದೆ.</string>
+    <string name="ques2">ಸಾವಯವ ಬೇಸಾಯವು EU ಸಾಮಾನ್ಯ ಕೃಷಿ ನೀತಿಗೆ ಹೇಗೆ ಸರಿಹೊಂದುತ್ತದೆ?</string>
+    <string name="ans2">ಸಾಮಾನ್ಯ ಕೃಷಿ ನೀತಿ (ಸಿಎಪಿ) ಯ ಹೊಸ ಸುಧಾರಣಾ ಪ್ರಸ್ತಾಪಗಳು ರೈತರಿಗೆ ಪರಿಸರ ಸ್ನೇಹಿ ಕೃಷಿ ವಿಧಾನಗಳನ್ನು ಅನುಸರಿಸಲು ಪ್ರೋತ್ಸಾಹವನ್ನು ನೀಡುತ್ತವೆ. ರೈತರಿಗೆ 30% ನಷ್ಟು ಪಾವತಿಗಳನ್ನು ಈಗ ಪರಿಸರ ಗುರಿಗಳನ್ನು ಪೂರೈಸಲು ಲಿಂಕ್ ಮಾಡಲಾಗುತ್ತದೆ. ಈ ಹೊಸ ಪರಿಸರೀಯ ಆಡಳಿತದಡಿಯಲ್ಲಿ, ಸಾವಯವ ಬೇಸಾಯವನ್ನು ವ್ಯಾಖ್ಯಾನದಿಂದ ಹಸಿರು ಎಂದು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ಸಾವಯವ ರೈತರಿಗೆ ಪರಿಸರ, ಅಥವಾ ಹಸಿರು, ಪಾವತಿಗಳಿಗೆ ಅರ್ಹತೆ ನೀಡಲಾಗುತ್ತದೆ, ಯಾವುದೇ ಹೆಚ್ಚಿನ ಜವಾಬ್ದಾರಿಗಳನ್ನು ಪೂರೈಸದೆ.</string>
+    <string name="ques3">ಸಾವಯವ ಕೃಷಿ ಏಕೆ ಮುಖ್ಯ?</string>
+    <string name="ans3">ಇಯುದಲ್ಲಿ ಸಾವಯವ ಉತ್ಪನ್ನಗಳ ಗ್ರಾಹಕ ಬೇಡಿಕೆಯು ಒಂದು ದಶಕದಿಂದಲೂ ಸ್ಥಿರವಾಗಿ ಬೆಳೆಯುತ್ತಿದೆ ಮತ್ತು ಸಾವಯವ ಬೇಸಾಯ ಕ್ಷೇತ್ರದ ಪಾಲು ಹೆಚ್ಚಿನ ಸದಸ್ಯ ರಾಜ್ಯಗಳಲ್ಲಿ ಹೆಚ್ಚಳವಾಗಿದೆ. ಆದ್ದರಿಂದ, ಇದು ಯುರೋಪಸ್ ಜೈವಿಕ ಅರ್ಥಶಾಸ್ತ್ರದ ಪ್ರಮುಖ ಭಾಗವಾಗಿದೆ. ಇದು ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಅಭ್ಯಾಸಗಳು ಮತ್ತು ವಿಭಿನ್ನ ಸದಸ್ಯ ರಾಜ್ಯಗಳಲ್ಲಿ ಲಭ್ಯವಿರುವ ಸಂಪನ್ಮೂಲಗಳನ್ನು ಅವಲಂಬಿಸಿ ಅರಣ್ಯ, ಕೃಷಿ, ಸಾಗರ, ಅಥವಾ ತ್ಯಾಜ್ಯಗಳ ಮೇಲೆ ಒತ್ತುನೀಡುವ ಜೈವಿಕ ಸಂಪನ್ಮೂಲಗಳ ಮೇಲೆ ನಿರ್ಮಿಸಲಾದ ಆರ್ಥಿಕ ವ್ಯವಸ್ಥೆಯಾಗಿದೆ.</string>
+    <string name="ques4">ಸಾವಯವ ಬೇಸಾಯವು ಉದ್ಯೋಗಗಳು ಮತ್ತು ಬೆಳವಣಿಗೆಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ?</string>
+    <string name="ans4">ಯುರೋಪಿಯನ್ ಜೈವಿಕ ಆರ್ಥಿಕತೆಯು € 2 ಟ್ರಿಲಿಯನ್ಗಳಷ್ಟಿದೆ ಮತ್ತು 22 ಮಿಲಿಯನ್ ಉದ್ಯೋಗಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. 2012 ರಲ್ಲಿ, ಯೂರೋಪಿನಲ್ಲಿ ಜೀವವಿಜ್ಞಾನಕ್ಕೆ ಯುರೋಪಿಯನ್ ಕಮಿಷನ್ ತನ್ನ ತಂತ್ರವನ್ನು ಬಿಡುಗಡೆ ಮಾಡಿತು, ಅದರಲ್ಲಿ ಯೂನೊವಿಟಿಂಗ್ ಫಾರ್ ಸಸ್ಟೈನಬಲ್ ಗ್ರೋಥ್: ಎ ಬಯೋಎಕ್ಯಾಮಿ ಫಾರ್ ಯುರೋಪ್.</string>
+    <string name="ques5">ಯುರೋಪ್ನಲ್ಲಿ ಸಾವಯವ ಕೃಷಿ ಎಷ್ಟು ವ್ಯಾಪಕವಾಗಿರುತ್ತದೆ?</string>
+    <string name="ans5">ಐರೋಪ್ಯ ಕಮೀಷನ್ನ ಇತ್ತೀಚಿನ ಅಂಕಿ ಅಂಶಗಳು 2007 ರ ಪ್ರಕಾರ, ಇಯುನಲ್ಲಿ 180,000 ಕ್ಕಿಂತ ಹೆಚ್ಚು ಸಾವಯವ ಕೃಷಿ ಕೇಂದ್ರಗಳು ಇದ್ದವು, ಇದು 7.2 ಮಿಲಿಯನ್ ಹೆಕ್ಟೇರ್ ಭೂಮಿಯನ್ನು ಹೊಂದಿದೆ - ಐರ್ಲೆಂಡ್ಗಿಂತ ದೊಡ್ಡ ಪ್ರದೇಶವಾಗಿದೆ. ಪ್ರಪಂಚದ 24% ರಷ್ಟು ಜೈವಿಕ ಭೂಮಿ ಯುರೋಪ್ನಲ್ಲಿದೆ, ಆದಾಗ್ಯೂ ಇದು ಇಯುನಲ್ಲಿ ಕೇವಲ 4% ಕೃಷಿ ಭೂಮಿಯಾಗಿದೆ. ಇಟಲಿ, ಸ್ಪೇನ್ ಮತ್ತು ಜರ್ಮನಿಗಳು ಅತಿದೊಡ್ಡ ಸಾವಯವ ಕೃಷಿ ಪ್ರದೇಶವಿರುವ ದೇಶಗಳಾಗಿವೆ.</string>
+    <string name="ques6">ಸಾವಯವ ಬೇಸಾಯವನ್ನು ರೂಪಿಸುವ ನಿಯಮಗಳೇ?</string>
+    <string name="ans6">ಇಯು ರೆಗ್ಯುಲೇಷನ್ಸ್ ಇಸಿ / 834/2007 ಮತ್ತು ಇಸಿ / 967/2008 ಸಾವಯವ ಉತ್ಪನ್ನಗಳ ಉತ್ಪಾದನೆ ಮತ್ತು ಲೇಬಲ್ಗೆ ವ್ಯವಹರಿಸುತ್ತದೆ. ಸಾವಯವ ಬೇಸಾಯದ ಅತ್ಯುತ್ತಮ ಅಭ್ಯಾಸಗಳ ಮೇಲೆ ಅವರು ಕಟ್ಟುನಿಟ್ಟಾದ ನಿಯಮಗಳನ್ನು ಇಡುತ್ತಾರೆ ಮತ್ತು ಸಾವಯವ ಬೇಸಾಯ ಉದ್ಯಮದ ಮುಂದುವರಿದ ಬೆಳವಣಿಗೆಯನ್ನು ಉತ್ತೇಜಿಸುವ ಗುರಿಯನ್ನು ಹೊಂದಿದ್ದಾರೆ. ಯುರೋಪಿಯನ್ ಕಮಿಷನ್ ಸಾವಯವ ಬೇಸಾಯದ ಬಗ್ಗೆ ಸಾರ್ವಜನಿಕ ಸಮಾಲೋಚನೆ ಪೂರ್ಣಗೊಳಿಸಿದೆ, ಕಾನೂನು ಚೌಕಟ್ಟನ್ನು ಸರಳೀಕರಿಸುವ ದೃಷ್ಟಿಯಿಂದ, ಗುಣಮಟ್ಟವನ್ನು ನೀರಿರುವ ನೀರನ್ನು ಖಾತರಿಪಡಿಸುವುದಿಲ್ಲ. 45,000 ಪ್ರತಿಸ್ಪಂದನಗಳು ಪಡೆದ ಸಮಾಲೋಚನೆಯ ಫಲಿತಾಂಶಗಳು ಕಮೀಷನ್ ಸಾವಯವ ಕೃಷಿ ವೆಬ್ಸೈಟ್ನಲ್ಲಿ ಪ್ರಕಟಿಸಲ್ಪಡುತ್ತವೆ.</string>
+
+    <string name="ques7">ಈ ಕಾನೂನು ಏಕೆ ಅಗತ್ಯ?</string>
+    <string name="ans7">ಸಾವಯವ ಉತ್ಪಾದನೆಯ ಮೇಲಿನ ಶಾಸನವು ಹೆಚ್ಚಿನ ಗುಣಮಟ್ಟದ ಸಾವಯವ ಉತ್ಪನ್ನಗಳನ್ನು ನಿರ್ವಹಿಸುವಲ್ಲಿ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸುತ್ತದೆ ಮತ್ತು ಗ್ರಾಹಕರನ್ನು ಮೋಸದ ಲೇಬಲ್ನಿಂದ ರಕ್ಷಿಸುತ್ತದೆ.</string>
+    <string name="ques8">ಎಲ್ಲಾ ಇಯು ಸದಸ್ಯ ರಾಷ್ಟ್ರಗಳಾದ್ಯಂತ ಸಾವಯವ ಕೃಷಿಗೆ ಸಂಬಂಧಿಸಿದ ಮಾನದಂಡಗಳೇ?</string>
+    <string name="ans8">ಇಯು ನಿಯಂತ್ರಣವು ಎಲ್ಲಾ ಸದಸ್ಯ ರಾಷ್ಟ್ರಗಳು ಅನುಸರಿಸಬೇಕಾದ ಬೇಸ್-ಲೈನ್ ಮಾನದಂಡವಾಗಿದೆ, ಆದರೆ ಕೆಲವು ರಾಜ್ಯಗಳಲ್ಲಿ ಸಂಬಂಧಿಸಿದ ನಿಯಂತ್ರಣ ಘಟಕಗಳು ಕಠಿಣವಾದ ಅವಶ್ಯಕತೆಗಳನ್ನು ಪರಿಚಯಿಸಬಹುದು. ಈ ವರ್ಷದ ನಂತರ, ಯೂರೋಪಿನ ಸಂಸತ್ತು ಯೂರೋಪಿಯನ್ ಕೋರ್ಟ್ ಆಫ್ ಆಡಿಟರ್ಸ್ನಿಂದ ವರದಿ ಮಾಡಲ್ಪಡುತ್ತದೆ, ನಿಯಂತ್ರಣ ಮಂಡಳಿಗಳ ಮೇಲೆ ತಮ್ಮ ಮೇಲ್ವಿಚಾರಣಾ ಪಾತ್ರವನ್ನು ಬಲಪಡಿಸಲು ಸದಸ್ಯ ರಾಷ್ಟ್ರಗಳನ್ನು ಕರೆ ಮಾಡುತ್ತದೆ ಮತ್ತು ಸಾವಯವ ಉತ್ಪಾದನೆಗಾಗಿ ಗುಣಮಟ್ಟವನ್ನು ಅಂಗೀಕರಿಸುವ ರಾಷ್ಟ್ರಗಳು ಸಾಕಷ್ಟು ಮೇಲ್ವಿಚಾರಣೆ.</string>
+    <string name="ques9">ಸಾವಯವ ಕೃಷಿಯಲ್ಲಿ ರಾಸಾಯನಿಕ ರಸಗೊಬ್ಬರಗಳ ಬಳಕೆ ಏಕೆ ನಿರ್ಬಂಧಿತವಾಗಿದೆ?</string>
+    <string name="ans9">ರಾಸಾಯನಿಕ ರಸಗೊಬ್ಬರಗಳ ಬಳಕೆಯನ್ನು ಅನೇಕ ಕಾರಣಗಳಿಗಾಗಿ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ.
+ಮೊದಲನೆಯದಾಗಿ, ರಾಸಾಯನಿಕ ರಸಗೊಬ್ಬರಗಳ ಉತ್ಪಾದನೆ ಮತ್ತು ವಿತರಣೆ ದೊಡ್ಡ ಪ್ರಮಾಣದಲ್ಲಿ ಪಳೆಯುಳಿಕೆ ಇಂಧನಗಳನ್ನು ಬಳಸುತ್ತದೆ, ಅದು ಪರಿಸರಕ್ಕೆ ಹಾನಿಕಾರಕವಾಗಿದ್ದು, ಸಮರ್ಥನೀಯ ಬಾಹ್ಯ ಒಳಹರಿವಿನ ಮೇಲೆ ಅವಲಂಬನೆಯನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ.
+ಎರಡನೆಯದಾಗಿ, ಸಂಶ್ಲೇಷಿತ ಪದಾರ್ಥಗಳೊಂದಿಗೆ ನೈಸರ್ಗಿಕ, ನವೀಕರಿಸಬಹುದಾದ ಸಸ್ಯ ಪೌಷ್ಟಿಕಾಂಶದ ಪರ್ಯಾಯವು ನೈಸರ್ಗಿಕ ಚಕ್ರಗಳನ್ನು ತಡೆಗಟ್ಟುತ್ತದೆ, ಮಣ್ಣಿನಲ್ಲಿ ನೀರು ಹರಿದುಹೋಗುವಿಕೆ ಮತ್ತು ಎಲೆಗಳ ವಿಷಕಾರಿ ಉಳಿಕೆಗಳನ್ನು ಮಾಲಿನ್ಯಗೊಳಿಸುತ್ತದೆ.
+ಮೂರನೆಯದಾಗಿ, ಈ ವಿಧಾನಗಳ ಬಳಕೆಯನ್ನು ಮಣ್ಣಿನ ಗುಣಮಟ್ಟವನ್ನು ಕ್ರಮೇಣ ಅವನತಿಯಿಂದ ಉಂಟುಮಾಡುತ್ತದೆ, ಇದು ಕಡಿಮೆ ಆರೋಗ್ಯಕರ ಮತ್ತು ರೋಗ ಮತ್ತು ಕೀಟಗಳಿಗೆ ಕಡಿಮೆ ನಿರೋಧಕವಾಗಿರುವ ಬೆಳೆಗಳಿಗೆ ಕಾರಣವಾಗುತ್ತದೆ.</string>
+    <string name="ques10">ರಾಸಾಯನಿಕ ಗೊಬ್ಬರಗಳು ಮತ್ತು ಕೀಟನಾಶಕಗಳನ್ನು ಬಳಸದೆ ಸಾವಯವ ರೈತರು ಬೆಳೆಗಳನ್ನು ಮತ್ತು ನಿಯಂತ್ರಣ ಕೀಟಗಳನ್ನು ಹೇಗೆ ಫಲವತ್ತಾಗಿಸುತ್ತಾರೆ?</string>
+    <string name="ans10">ಪೋಷಕಾಂಶಗಳು ಮತ್ತು ಜೈವಿಕ ವಸ್ತುಗಳನ್ನು ಪರಿಚಯಿಸಲು ಮಿಶ್ರಗೊಬ್ಬರ, ಕ್ಯಾಚ್ ಬೆಳೆಗಳು, ಹಸಿರು ಗೊಬ್ಬರ ಮತ್ತು ಇತರ ನೈಸರ್ಗಿಕ ಕ್ರಮಗಳ ಮೂಲಕ ಆರೋಗ್ಯಕರ ಮಣ್ಣಿನ ನಿರ್ವಹಣೆಗೆ ತತ್ವಗಳ ಮೇಲೆ ಜೈವಿಕ ಕೃಷಿ ಪ್ರಾಥಮಿಕವಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ. ಆರೋಗ್ಯಕರ ಮಣ್ಣಿನ ಆರೋಗ್ಯಕರ ಬೆಳೆಗಳ ಬೆಳವಣಿಗೆಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ ಮತ್ತು ಆರೋಗ್ಯಕರ ಬೆಳೆಗಳು ರೋಗಕ್ಕೆ ಪ್ರತಿರೋಧವನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ. ಸಾವಯವ ರೈತರು ಬುದ್ಧಿವಂತಿಕೆಯಿಂದ ಕೀಟಗಳು ಮತ್ತು ರೋಗದ ಪ್ರತಿರೋಧವನ್ನು ಆಧರಿಸಿ ತಮ್ಮ ಬೆಳೆ ಜಾತಿಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ಪ್ರೋತ್ಸಾಹಿಸಲಾಗುತ್ತದೆ. ಕಳೆ ಮತ್ತು ಕೀಟಗಳನ್ನು ಕ್ರಾಪ್ ಸರದಿ ತಂತ್ರಗಳು, ದೈಹಿಕ ವಿಧಾನಗಳು ಮತ್ತು ಜೇಡಗಳು ಮತ್ತು ಪಕ್ಷಿಗಳು ಮುಂತಾದ ಕ್ರಿಮಿಕೀಟಗಳ ನೈಸರ್ಗಿಕ ಶತ್ರುಗಳ ರಕ್ಷಣೆ ಮೂಲಕ ನಿಯಂತ್ರಿಸಲಾಗುತ್ತದೆ.</string>
+    <string name="heading">ರೈತರ ಕಲ್ಯಾಣಕ್ಕಾಗಿ ಸರಕಾರದ ಯೋಜನೆಗಳು</string>
+    <string name="scheme1">ಗ್ರಾಮೀಣ ಭಂಡಾರನ್ ಯೋಜನೆ</string>
+    <string name="scheme2">ಜಾನುವಾರು ವಿಮಾ ಯೋಜನೆ (ಭಾರತ)</string>
+    <string name="scheme3">ಮೀನುಗಾರರ ಕಲ್ಯಾಣ ರಾಷ್ಟ್ರೀಯ ಯೋಜನೆ</string>
+    <string name="scheme4">ರಾಷ್ಟ್ರೀಯ ಕೃಷಿ ವಿಕಾಸ್ ಯೋಜನೆ</string>
+    <string name="scheme5">ಕಿಸಾನ್ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್</string>
+    <string name="scheme6">ಕಿಸಾನ್ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್</string>
+    <string name="scheme7">ಅಗ್ರಿ ಗೋಲ್ಡ್ ಸಾಲ</string>
+    <string name="scheme8">ಅಧಿಕ ಮೌಲ್ಯದ ಸಾಲ ಸಾಲ</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next_slide">ಮುಂದೆ</string>
+    <string name="skip">ತೆರಳಿ</string>
+    <string name="start">ಅರ್ಥವಾಯಿತು</string>
+
+    <string name="slide_1_title">ನಿಮ್ಮ ಫಾರ್ಮ್ ಮೇಲ್ವಿಚಾರಣೆ</string>
+    <string name="slide_1_desc">ಕೃಷಿ ಸಂಪೂರ್ಣ ಅವಲೋಕನವನ್ನು ಪಡೆಯಿರಿ ಮತ್ತು ಅದನ್ನು ನಿಯಂತ್ರಿಸಿ!</string>
+
+    <string name="slide_2_title">ಮಲ್ಟಿ-ಲ್ಯಾಂಗ್ವೇಜ್</string>
+    <string name="slide_2_desc">ಭಾಷೆ ಸಂಸ್ಕೃತಿಯ ರಸ್ತೆ ನಕ್ಷೆಯಾಗಿದೆ!</string>
+
+    <string name="slide_3_title">ವಾಟರ್ ಪಂಪ್ ಕಂಟ್ರೋಲ್</string>
+    <string name="slide_3_desc">ನೀರಿನ ಸಸ್ಯಗಳು ಹಸ್ತಚಾಲಿತವಾಗಿ ಅಥವಾ ಸ್ವಯಂಚಾಲಿತವಾಗಿ!</string>
+
+    <string name="slide_4_title">ಮಾರುಕಟ್ಟೆ ಸ್ಥಳ</string>
+    <string name="slide_4_desc">ಖರೀದಿ, ಮಾರಾಟ ಮತ್ತು ಬಾಡಿಗೆ!</string>
+
+    <string name="slide_5_title">ಫಾರ್ಮ್ ಸೆಕ್ಯುರಿಟಿ</string>
+    <string name="slide_5_desc">ಒಳನುಗ್ಗುವವರು ನಿಮ್ಮ ಫಾರ್ಮ್ ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿರಿಸಿಕೊಳ್ಳುತ್ತಾರೆ</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+    <string name="video_thumbnail">Video Thumbnail</string>
+    <string name="enter_video_name">ದಯವಿಟ್ಟು ನಿಮ್ಮ ವೀಡಿಯೊಗಾಗಿ ಹೆಸರನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="predictions">ಭವಿಷ್ಯಗಳು</string>
+    <string name="farm_reading">ಇದು ನಿಮ್ಮ ಫಾರ್ಮ್ನ ಪ್ರಸ್ತುತ ರೀಡಿಂಗ್ಸ್ ಆಗಿದೆ</string>
+    <string name="app_not_found">ಅಗೋರಾಂಪ್ ಮಾರುಕಟ್ಟೆ ಸ್ಥಳ ಕಂಡುಬಂದಿಲ್ಲ</string>
+    <string name="marketplace_not_found">ನೀವು Agrovamp ಮಾರುಕಟ್ಟೆ ಸ್ಥಳವನ್ನು ಸ್ಥಾಪಿಸಿಲ್ಲ ಎಂದು ತೋರುತ್ತಿದೆ. ದಯವಿಟ್ಟು Agrovamp Marketplace ಅನ್ನು ಸ್ಥಾಪಿಸಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="buy">ಖರೀದಿಸಿ</string>
+    <string name="sell">ಮಾರಾಟ</string>
+    <string name="add_to_cart">ಕಾರ್ಟ್ಗೆ ಸೇರಿಸಿ</string>
+    <string name="add_to_wishlist">ಬಯಕೆಪಟ್ಟಿಗೆ ಸೇರಿಸಿ</string>
+    <string name="buy_now">ಈಗ ಖರೀದಿಸು</string>
+    <string name="tractor">ಟ್ರ್ಯಾಕ್ಟರ್</string>
+    <string name="knife">ಆಸ್ಪ್ಯಾರಗಸ್ ನೈಫ್</string>
+    <string name="showel">ಶೋವೆಲ್</string>
+    <string name="rice">ಅಕ್ಕಿ</string>
+    <string name="axe">ಗ್ರಬ್ಬಿಂಗ್ ಆಕ್ಸ್</string>
+    <string name="moisture_level">ತೇವಾಂಶ ಮಟ್ಟ</string>
+    <string name="product_name">ಉತ್ಪನ್ನದ ಹೆಸರನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="product_price">ಉತ್ಪನ್ನ ಬೆಲೆ ನಮೂದಿಸಿ</string>
+    <string name="product_description">ಉತ್ಪನ್ನ ವಿವರಣೆ</string>
+    <string name="send_sell_request">ಮಾರಾಟ</string>
+    <string name="choose_a_picture">ಚಿತ್ರವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="rent">ಬಾಡಿಗೆ</string>
+    <string name="start_date">ಪ್ರಾರಂಭ ದಿನಾಂಕ</string>
+    <string name="end_date">ಅಂತಿಮ ದಿನಾಂಕ</string>
+    <string name="coming_soon">ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ</string>
+    <string name="date_selected">ಆಯ್ಕೆ ಮಾಡಿದ ದಿನಾಂಕ</string>
+    <string name="you_need_to_water_your_farm_on">ನಿಮ್ಮ ಜಮೀನನ್ನು ನೀರನ್ನು ಬೇಕು</string>
+    <string name="water_smart">ವಾಟರ್ ಸ್ಮಾರ್ಟ್</string>
 </resources>

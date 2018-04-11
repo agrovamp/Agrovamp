@@ -83,7 +83,7 @@ public class FarmFragment extends Fragment {
         summaryFragment.setArguments(bundle);
         adapter.addFragment(summaryFragment, getString(R.string.summary));
         adapter.addFragment(ControlsFragment.newInstance(), getString(R.string.controls));
-        //adapter.addFragment(DroneFragment.newInstance(), getString(R.string.drone));
+        adapter.addFragment(DroneFragment.newInstance(), getString(R.string.drone));
         viewPager.setAdapter(adapter);
     }
 

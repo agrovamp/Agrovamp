@@ -4,36 +4,36 @@
     android:layout_height="match_parent"
     tools:context="com.agrovamp.agrovamp.DroneFragment">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/plant_seeds_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/plant_seeds_fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
 
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
-    <TextView
-        android:layout_marginTop="8dp"
-        android:layout_below="@id/plant_seeds_fab"
-        android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:id="@+id/plant_seeds_text_view"
-        android:text="@string/plant_seeds"/>
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="40dp" />-->
+    <!--<TextView-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_below="@id/plant_seeds_fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/plant_seeds_text_view"-->
+        <!--android:text="@string/plant_seeds"/>-->
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/spray_pesticide_fab"
-        android:layout_below="@id/plant_seeds_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
-    <TextView
-        android:layout_marginTop="8dp"
-        android:layout_below="@id/spray_pesticide_fab"
-        android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:text="@string/plant_seeds"/>
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/spray_pesticide_fab"-->
+        <!--android:layout_below="@id/plant_seeds_text_view"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="40dp" />-->
+    <!--<TextView-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_below="@id/spray_pesticide_fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/plant_seeds"/>-->
 
     <Button
         android:layout_width="wrap_content"

@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.anastr.speedviewlib.ProgressiveGauge;
+import com.github.anastr.speedviewlib.SpeedView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +32,7 @@ public class SummaryFragment extends Fragment {
     private TextView temperatureTextView;
     private TextView moistureTextView;
     private TextView humidityTextView;
+    private SpeedView moistureLevelGauge;
 
     private User user;
     private DatabaseReference reference;
@@ -70,6 +73,8 @@ public class SummaryFragment extends Fragment {
         temperatureTextView = (TextView) view.findViewById(R.id.temperture_textview);
         moistureTextView = (TextView) view.findViewById(R.id.moisture_textview);
         humidityTextView = (TextView) view.findViewById(R.id.humidity_textview);
+        moistureLevelGauge = (SpeedView) view.findViewById(R.id.moistureLevelGauge);
+
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -79,6 +84,8 @@ public class SummaryFragment extends Fragment {
                     temperatureTextView.setText(Math.round(sensor.getTemperature()) + "\'C");
                     humidityTextView.setText(Math.round(sensor.getHumidity()) + "");
                     moistureTextView.setText(Math.round(sensor.getMoisture()) + "");
+                    moistureLevelGauge.speedTo((float) sensor.getMoisture());
+
                 }
             }
 

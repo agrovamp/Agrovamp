@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:gravity="center_horizontal"
     android:padding="20dp"
     tools:context="com.agrovamp.agrovamp.ControlsFragment">
 
@@ -90,8 +91,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/predictions"
+        android:text="@string/water_smart"
         android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:text="@string/you_need_to_water_your_farm_on"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dateTextView"
+        tools:text="11-04-2018"
+        android:textSize="20sp"
+        android:textColor="@color/bg_screen3"/>
 
 </LinearLayout>

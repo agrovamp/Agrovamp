@@ -141,4 +141,19 @@
     <string name="rent">Rent</string>
     <string name="add_to_cart">Add to Cart</string>
     <string name="add_to_wishlist">Add to wishlist</string>
+    <string name="buy_now">Buy now</string>
+    <string name="showel">Showel</string>
+    <string name="rice">Rice</string>
+    <string name="axe">Grubbing Axe</string>
+    <string name="moisture_level">Moisture level</string>
+    <string name="product_name">Enter product name</string>
+    <string name="product_price">Enter product price</string>
+    <string name="send_sell_request">Send sell request</string>
+    <string name="choose_a_picture">Choose a picture</string>
+    <string name="start_date">start date</string>
+    <string name="end_date">end date</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="date_selected">Date selected</string>
+    <string name="you_need_to_water_your_farm_on">You need to water your farm on</string>
+    <string name="water_smart">Water Smart</string>
 </resources>

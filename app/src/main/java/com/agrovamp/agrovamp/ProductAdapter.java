@@ -2,6 +2,7 @@ package com.agrovamp.agrovamp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +71,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         public void bindViewHolder(Product product) {
             productNameTextView.setText(product.getName());
             productPriceTextView.setText("Rs. " + product.getPrice() + "/-");
+            productImageView.setImageDrawable(getImageDrawable(product.getImageName()));
         }
+    }
+
+    public Drawable getImageDrawable(String name) {
+        String uri = "@drawable/" + name;
+        int imageResource = context.getResources().getIdentifier(uri, null, context.getPackageName());
+        return context.getResources().getDrawable(imageResource);
     }
 }

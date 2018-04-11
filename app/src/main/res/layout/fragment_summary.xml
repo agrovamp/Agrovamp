@@ -1,71 +1,130 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/fragment_summary"
-    tools:context="com.agrovamp.agrovamp.SummaryFragment">
-
-    <TextView
-        android:textSize="20sp"
-        android:padding="10dp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/farm_reading"/>
-
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
+        android:id="@+id/fragment_summary"
+        android:gravity="center"
+        tools:context="com.agrovamp.agrovamp.SummaryFragment">
+
         <TextView
-            android:id="@+id/temperture_textview"
-            android:layout_margin="10dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/rounded_textview"
+            android:textSize="20sp"
+            android:padding="10dp"
             android:gravity="center"
-            android:padding="26dp"
-            android:text="--"
-            android:textSize="24sp" />
+            android:layout_marginTop="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/farm_reading"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/temperture_textview"
+                    android:layout_margin="10dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/rounded_textview"
+                    android:gravity="center"
+                    android:padding="26dp"
+                    android:text="--"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temperature"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/moisture_textview"
+                    android:layout_margin="10dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/rounded_textview"
+                    android:gravity="center"
+                    android:padding="26dp"
+                    android:text="--"
+                    android:textSize="24sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/moisture"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/humidity_textview"
+                    android:layout_margin="10dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/rounded_textview"
+                    android:gravity="center"
+                    android:padding="26dp"
+                    android:text="--"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/humidity"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/temperature"/>
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:padding="15dp"
+            android:textColor="@android:color/black"
+            android:text="@string/moisture_level"/>
 
-        <TextView
-            android:id="@+id/moisture_textview"
-            android:layout_margin="10dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/rounded_textview"
-            android:gravity="center"
-            android:padding="26dp"
-            android:text="--"
-            android:textSize="24sp" />
+        <com.github.anastr.speedviewlib.SpeedView
+            android:id="@+id/moistureLevelGauge"
+            android:layout_width="200dp"
+            app:sv_lowSpeedColor="@color/dot_dark_screen3"
+            app:sv_minSpeed="4"
+            app:sv_maxSpeed="40"
+            app:sv_highSpeedColor="@color/colorAccent"
+            app:sv_mediumSpeedColor="@android:color/holo_green_light"
+            android:layout_height="wrap_content"
+            app:sv_withTremble="false"
+            app:sv_unitUnderSpeedText="false"
+            app:sv_unit=""
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/moisture"/>
-
-        <TextView
-            android:id="@+id/humidity_textview"
-            android:layout_margin="10dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/rounded_textview"
-            android:gravity="center"
-            android:padding="26dp"
-            android:text="--"
-            android:textSize="24sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/humidity"/>
+            tools:text="STRESSED"
+            android:textStyle="italic|bold"/>
     </LinearLayout>
-</LinearLayout>
+
+</ScrollView>

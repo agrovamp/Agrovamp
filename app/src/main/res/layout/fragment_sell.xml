@@ -1,13 +1,62 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.agrovamp.agrovamp.SellFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/product_name"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/productNameEditText"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:hint="@string/product_price"
+        android:layout_marginStart="8dp"
+        android:layout_below="@id/productNameEditText"
+        android:layout_marginEnd="8dp"
+        android:inputType="number"
+        android:id="@+id/productPriceEditText"/>
+    <EditText
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:gravity="top"
+        android:hint="@string/product_description"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_below="@id/productPriceEditText"
+        android:id="@+id/productDescriptionEditText"/>
 
-</FrameLayout>
+    <Button
+        android:id="@+id/chooseImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/sellButton"
+        android:layout_marginBottom="9dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="@android:color/transparent"
+        android:textColor="@android:color/white"
+        android:text="@string/choose_a_picture"
+        android:padding="5dp"/>
+
+
+    <Button
+        android:id="@+id/sellButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:text="@string/send_sell_request"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

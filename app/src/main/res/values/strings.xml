@@ -141,7 +141,25 @@ Organic farmers are also encouraged to intelligently select their crop species b
     <string name="marketplace_not_found">It seems that you have not installed the Agrovamp Marketplace. Please install the Agrovamp Marketplace and try again.</string>
     <string name="buy">Buy</string>
     <string name="sell">Sell</string>
-    <string name="rent">Rent</string>
     <string name="add_to_cart">Add to Cart</string>
     <string name="add_to_wishlist">Add to wishlist</string>
+    <string name="buy_now">Buy now</string>
+    <string name="tractor">Tractor</string>
+    <string name="knife">Asparagus Knife</string>
+    <string name="showel">Showel</string>
+    <string name="rice">Rice</string>
+    <string name="axe">Grubbing Axe</string>
+    <string name="moisture_level">Moisture level</string>
+    <string name="product_name">Product name</string>
+    <string name="product_price">Product price</string>
+    <string name="send_sell_request">Sell</string>
+    <string name="product_description">Product description</string>
+    <string name="choose_a_picture">Choose a picture</string>
+    <string name="rent">Rent</string>
+    <string name="start_date">start date</string>
+    <string name="end_date">end date</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="date_selected">Date selected</string>
+    <string name="you_need_to_water_your_farm_on">You need to water your farm on</string>
+    <string name="water_smart">Water Smart</string>
 </resources>

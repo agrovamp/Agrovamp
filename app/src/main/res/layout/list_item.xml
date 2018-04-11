@@ -10,8 +10,7 @@
     <ImageView
         android:id="@+id/productImageView"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:src="@mipmap/ic_launcher_round"
+        android:layout_height="60dp"
         android:layout_weight="1"/>
     <LinearLayout
         android:gravity="center_vertical"

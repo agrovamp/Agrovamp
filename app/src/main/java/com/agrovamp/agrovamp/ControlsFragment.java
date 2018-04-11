@@ -36,6 +36,8 @@ import java.util.Calendar;
  */
 public class ControlsFragment extends Fragment {
 
+
+
     public static final String TAG = "ControlsFragment";
 
     // TODO: Rename parameter arguments, choose names that match
@@ -53,6 +55,7 @@ public class ControlsFragment extends Fragment {
     private Switch irSwitch;
     private Switch pumpSwitch;
     private TextView intruderTextView;
+    private TextView dateTextView;
 
     private Context context;
 
@@ -79,6 +82,8 @@ public class ControlsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         FarmFragment farmFragment = (FarmFragment) getParentFragment();
 
+
+
         context = farmFragment.getActivity().getApplicationContext();
 
         preferenceManager = new PreferenceManager(getParentFragment().getActivity());
@@ -103,7 +108,11 @@ public class ControlsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_controls, container, false);
         pumpSwitch = view.findViewById(R.id.pump_switch);
         irSwitch = view.findViewById(R.id.ir_switch);
+        dateTextView = view.findViewById(R.id.dateTextView);
         intruderTextView = view.findViewById(R.id.intruder_textview);
+
+        String date = PredictionUtils.getPredictionString();
+        dateTextView.setText(date);
 
 //        reference.child("controls").child("motor").addValueEventListener(new ValueEventListener() {
 //            @Override

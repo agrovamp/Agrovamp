@@ -1,6 +1,7 @@
 package com.agrovamp.agrovamp;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             Product product = intent.getParcelableExtra(ProductAdapter.EXTRA_PRODUCT);
             productNameTextView.setText(product.getName());
             productPriceTextView.setText("Rs. " + product.getPrice() + "/-");
+            productImageView.setImageDrawable(getImageDrawable(product.getImageName()));
         }
 
         addToCartButton.setOnClickListener(new View.OnClickListener() {
@@ -58,5 +60,11 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Coming soon", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public Drawable getImageDrawable(String name) {
+        String uri = "@drawable/" + name;
+        int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+        return getResources().getDrawable(imageResource);
     }
 }

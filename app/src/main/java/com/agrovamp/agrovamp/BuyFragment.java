@@ -95,9 +95,16 @@ public class BuyFragment extends Fragment {
     public List<Product> getDummyProducts() {
         List<Product> products = new ArrayList<Product>();
 
-        for (int i = 0; i < 10; i++) {
-            products.add(new Product("Tractor", 200, null));
-        }
+        products.add(new Product(context.getString(R.string.tractor), 4000, "tractor"));
+        products.add(new Product(context.getString(R.string.knife), 150, "knife"));
+        products.add(new Product(context.getString(R.string.showel), 350, "showel"));
+        products.add(new Product(context.getString(R.string.rice), 140, "rice"));
+        products.add(new Product(context.getString(R.string.axe), 400, "axe"));
+        products.add(new Product(context.getString(R.string.tractor), 4000, "tractor"));
+        products.add(new Product(context.getString(R.string.knife), 150, "knife"));
+        products.add(new Product(context.getString(R.string.showel), 350, "showel"));
+        products.add(new Product(context.getString(R.string.rice), 140, "rice"));
+        products.add(new Product(context.getString(R.string.axe), 400, "axe"));
 
         return products;
     }
